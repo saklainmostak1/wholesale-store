@@ -4,7 +4,7 @@ const Footer = () => {
     
     return (
         <footer
-      className='bg-black text-white'
+      className='bg-slate-600 text-white'
         >
             <div className="footer mx-auto p-10 m-10">
             <div>
@@ -28,7 +28,7 @@ const Footer = () => {
                 <a href='/' className="link link-hover">Cookie policy</a>
             </div>
             </div>
-            <div className='text-center mt-32'>
+            <div className='text-center'>
                 <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
             </div>
         </footer>
