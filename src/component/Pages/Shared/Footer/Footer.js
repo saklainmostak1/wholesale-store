@@ -3,13 +3,13 @@ import React from 'react';
 const Footer = () => {
     
     return (
-        <footer 
-        // style={{
-        //     background: `url(${})`,
-        //     backgroundSize: 'cover'
-        // }}
+        <footer
+        style={{
+            // background: `url(${footer})`,
+            backgroundSize: 'cover'
+        }}
         >
-            <div className="footer p-10 m-10">
+            <div className="footer mx-auto p-10 m-10">
             <div>
                 <span className="footer-title">Services</span>
                 <a href='/' className="link link-hover">Branding</a>
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
             </div>
             <div className='text-center mt-32'>
-                <p>Copyright © 2022</p>
+                <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
             </div>
         </footer>
     );
