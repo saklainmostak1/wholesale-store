@@ -10,7 +10,7 @@ const Card = ({ data }) => {
                     <p>{description}</p>
                     <h2 className="card-title">{name}</h2>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Watch</button>
+                        <button className="btn btn-primary">Coming Soon....</button>
                     </div>
                 </div>
             </div>

@@ -33,7 +33,7 @@ const Login = () => {
                 <input type="submit" className="btn btn-primary" value="login" />
               </div>
               <label className="label">
-                <p className='text-center mt-5'>New To Genius Car - <Link className='text-orange-600 font-bold' to='/register'>Sign Up</Link> </p>
+                <p className='text-center mt-5'>New To WholeSale Store - <Link className='text-orange-600 font-bold' to='/register'>Sign Up</Link> </p>
               </label>
             </form>
           </div>

@@ -4,10 +4,7 @@ const Footer = () => {
     
     return (
         <footer
-        style={{
-            // background: `url(${footer})`,
-            backgroundSize: 'cover'
-        }}
+      className='bg-black text-white'
         >
             <div className="footer mx-auto p-10 m-10">
             <div>
