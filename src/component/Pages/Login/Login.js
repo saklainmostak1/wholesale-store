@@ -1,10 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import img from '../Login/login.svg'
 
 const Login = () => {
+  const {loginWithEmailPAss} = useContext(AuthContext)
+  const navigate = useNavigate()
   const handleLogin = event =>{
     event.preventDefault()
+    const form = event.target
+    const name = form.name.value
+    const email = form.email.value
+    const password = form.password.value
+    console.log(name, email, password);
+    loginWithEmailPAss(email , password)
+    .then(result => {
+      const user = result.user
+      console.log(user)
+      navigate('/')
+    })
+    .catch(error => {
+      console.error(error)
+    })
   }
     return (
         <div>
