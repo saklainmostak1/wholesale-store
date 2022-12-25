@@ -12,7 +12,7 @@ const Contact = () => {
        
         const ratings = {name, email, description}
     
-        fetch('http://localhost:5000/ratings', {
+        fetch('http://localhost:5000/contact', {
           method: 'POST',
           headers: {
             'content-type' : 'application/json'

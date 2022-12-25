@@ -1,16 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../Shared/Loading/Loading';
 // import { Link } from 'react-router-dom';
 import AllProductsCard from './AllProductsCard';
 
 const AllProducts = () => {
-    const [allProducts , setAllProducts] = useState([])
-    console.log(allProducts);
+    // const [allProducts , setAllProducts] = useState([])
+    // console.log(allProducts);
 
-    useEffect(() =>{
-        fetch('http://localhost:5000/allProducts')
-        .then(Response => Response.json())
-        .then(data => setAllProducts(data))
-    }, [])
+    // useEffect(() =>{
+    //     fetch('http://localhost:5000/allProducts')
+    //     .then(Response => Response.json())
+    //     .then(data => setAllProducts(data))
+    // }, [])
+    const {data: allProducts = [],  isLoading
+    } = useQuery({
+        queryKey: ['appointmentOptions'],
+        queryFn: async() => {
+           const res = await   fetch('http://localhost:5000/allProducts')
+        const data = await res.json()
+        return data
+    }
+    })
+    if(isLoading){
+        return <Loading></Loading>
+    }
     return (
         <div>
 

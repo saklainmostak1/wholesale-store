@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import img from '../../../image/contact1.png'
 
@@ -22,7 +23,14 @@ const Rating = () => {
 
     })
     .then(Response => Response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+      if (data.acknowledged) {
+       
+        toast.success('Review Website Sucessfully')
+        // refetch()
+    }
+    })
     .catch(error => console.error(error))
     form.reset('')
     console.log(name, email, rating, message )
