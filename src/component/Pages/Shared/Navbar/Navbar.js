@@ -18,6 +18,7 @@ const Navbar = () => {
     {
         user?.uid ?
         <>
+        <li><Link>DashBoard</Link></li>
         <li><Link onClick={handleLogout}>Logout</Link></li>
         <li>{user.email}</li>
         </>
