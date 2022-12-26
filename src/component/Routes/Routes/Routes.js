@@ -4,6 +4,8 @@ import AllProducts from "../../Pages/AllProducts/AllProducts";
 import Contact from "../../Pages/Contact/Contact";
 import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts";
 import AllProductsDashboard from "../../Pages/Dashboard/AllProductsDashBoard/AllProductsDashboard";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import ContactMessage from "../../Pages/Dashboard/ContactMessage/ContactMessage";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import DashboardNav from "../../Pages/Dashboard/DashBoardNav/DashboardNav";
 import ManageReviews from "../../Pages/Dashboard/ManageReview/ManageReviews";
@@ -60,6 +62,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/managereviews',
                 element: <ManageReviews></ManageReviews>
+            },
+            {
+                path: '/dashboard/contactmessage',
+                element: <ContactMessage></ContactMessage>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
             },
 
         ]

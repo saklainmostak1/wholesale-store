@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import img from '../Register/login.svg'
@@ -10,8 +11,30 @@ const Register = () => {
     const form = event.target
     const name = form.name.value
     const email = form.email.value
+    const photo = form.photo.value
     const password = form.password.value
-    console.log(name, email, password);
+    const users = {name, email, photo}
+    console.log(name, email, photo, password);
+
+    fetch('http://localhost:5000/users', {
+      method: 'POST',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(users)
+
+    })
+    .then(Response => Response.json())
+    .then(data => {
+      console.log(data)
+      if (data.acknowledged) {
+       
+        toast.success('Register Sucessfully')
+        // refetch()
+    }
+    })
+    .catch(error => console.error(error))
+    form.reset('')
     createUser(email , password)
     .then(result => {
       const user = result.user
@@ -36,6 +59,12 @@ const Register = () => {
             <span className="label-text">Name</span>
           </label>
           <input type="text" name='name' placeholder="Your Name" className="input input-bordered"/>
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Photo</span>
+          </label>
+          <input type="text" name='photo' placeholder="Your Photo" className="input input-bordered"/>
         </div>
         <div className="form-control">
           <label className="label">

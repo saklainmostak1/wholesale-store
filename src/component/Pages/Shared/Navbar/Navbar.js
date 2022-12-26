@@ -22,7 +22,7 @@ const Navbar = () => {
         <>
         <li><Link to='/dashboard'>DashBoard</Link></li>
         <li><Link onClick={handleLogout}>Logout</Link></li>
-       <p className='mt-4 flex'><FaUser></FaUser>{user?.email}</p>
+       <p className='mt-4 flex'><FaUser></FaUser>{user?.displayName}</p>
         </>
         :
         <>

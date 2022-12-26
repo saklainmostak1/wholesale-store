@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { FaStar } from 'react-icons/fa';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
-const ShowReview = ({review}) => {
+const ShowMessage = ({contact}) => {
     const {user} = useContext(AuthContext)
-    console.log(user)
-    const {name, rating, message, email} = review
-    console.log(review);
+    const {name, email,description } = contact
+    console.log(contact);
     return (
         <tr>         
         <td>
@@ -22,15 +20,12 @@ const ShowReview = ({review}) => {
             <span className="badge badge-ghost">{name}</span>          
         </td>
         <td> {email}</td>
-        <td> {rating}<FaStar className='text-orange-300'></FaStar> </td>
+        
         <td>
-            <p>{message}</p>
-        </td>
-        <td>
-        <button className='btn btn-xs'>Delete</button>
+            <p>{description}</p>
         </td>
     </tr>
     );
 };
 
-export default ShowReview;
+export default ShowMessage;

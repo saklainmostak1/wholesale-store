@@ -4,9 +4,9 @@ import Loading from '../../Shared/Loading/Loading';
 import ShowReview from './ShowReview';
 
 const ManageReviews = () => {
-    const {data: allProducts = [],  isLoading
+    const {data: reviews = [],  isLoading
     } = useQuery({
-        queryKey: ['allProducts'],
+        queryKey: ['reviews'],
         queryFn: async() => {
            const res = await   fetch('http://localhost:5000/ratings')
         const data = await res.json()
@@ -18,7 +18,7 @@ const ManageReviews = () => {
     }
     return (
         <div>
-            <h2 className="text-5xl">You Have</h2>
+            <h2 className="text-5xl mb-5">Website Reviews</h2>
             <div className="overflow-x-auto w-full">
   <table className="table w-full">
    
@@ -30,17 +30,17 @@ const ManageReviews = () => {
           </label>
         </th>
         <th>Name</th>
-        <th>price</th>
+        <th>Email</th>
         <th>Rating</th>
+        <th>Review Text</th>
         <th>Delete</th>
-        <th>Update</th>
       </tr>
     </thead>
     <tbody> 
     {
-               allProducts.map(product => <ShowReview
-               key={product._id}
-               product={product}
+               reviews.map(review => <ShowReview
+               key={review._id}
+               review={review}
                ></ShowReview>)
            }
     </tbody>
