@@ -13,12 +13,11 @@ const DashboardNav = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 text-base-content">
+                <ul className="menu bg-white text-black p-4 w-80 ">
                     <li><Link to='/dashboard'>DashBoard</Link></li>
                     <li><Link to='/dashboard/allusers'>All Users</Link></li>
                     <li><Link to='/dashboard/allproducts'>All Products</Link></li>
                     <li><Link to='/dashboard/addproducts'>Add A Products</Link></li>
-                    <li><Link to='/dashboard/manageproducts'>Manage Products</Link></li>
                     <li><Link to='/dashboard/managereviews'>Manage Reviews</Link></li>
                     <li><Link to='/dashboard/reportproducts'>Reported Products</Link></li>
                     <li><Link to='/dashboard/contactmessage'>Contact Message</Link></li>

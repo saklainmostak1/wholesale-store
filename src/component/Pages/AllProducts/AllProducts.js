@@ -14,7 +14,7 @@ const AllProducts = () => {
     // }, [])
     const {data: allProducts = [],  isLoading
     } = useQuery({
-        queryKey: ['appointmentOptions'],
+        queryKey: ['allProducts'],
         queryFn: async() => {
            const res = await   fetch('http://localhost:5000/allProducts')
         const data = await res.json()
