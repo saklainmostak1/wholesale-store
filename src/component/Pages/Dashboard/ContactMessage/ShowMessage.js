@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../AuthProvider/AuthProvider';
+import React from 'react';
+
 
 const ShowMessage = ({contact}) => {
-    const {user} = useContext(AuthContext)
     const {name, email,description } = contact
     console.log(contact);
     return (
@@ -10,9 +9,9 @@ const ShowMessage = ({contact}) => {
         <td>
             <div className="flex items-center space-x-3">
                 <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                        <img src={user?.photoURL} alt="" />
-                    </div>
+                    {/* <div className="mask mask-squircle w-12 h-12">
+                        <img src={photo} alt="" />
+                    </div> */}
                 </div>
             </div>
         </td>

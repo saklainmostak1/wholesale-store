@@ -15,6 +15,7 @@ const DashboardNav = () => {
                 <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                 <ul className="menu bg-white text-black p-4 w-80 ">
                     <li><Link to='/dashboard'>DashBoard</Link></li>
+                    <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
                     <li><Link to='/dashboard/allusers'>All Users</Link></li>
                     <li><Link to='/dashboard/allproducts'>All Products</Link></li>
                     <li><Link to='/dashboard/addproducts'>Add A Products</Link></li>
@@ -26,7 +27,7 @@ const DashboardNav = () => {
                     <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
                     <li><Link to='/dashboard/myorders'>My Orders</Link></li>
                     <li><Link to='/dashboard/myreviews'>My Reviews</Link></li>
-                    <li><Link to='/dashboard/managedoctors'>My Reviews</Link></li>
+                    <li><Link to='/dashboard/managedoctors'>Payments</Link></li>
                 </ul>
             </div>
         </div>

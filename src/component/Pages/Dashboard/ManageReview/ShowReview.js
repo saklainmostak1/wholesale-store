@@ -12,9 +12,9 @@ const ShowReview = ({review}) => {
         <td>
             <div className="flex items-center space-x-3">
                 <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                        <img src={user?.photoURL} alt="" />
-                    </div>
+                    {/* <div className="mask mask-squircle w-12 h-12">
+                        <img src={photo} alt="" />
+                    </div> */}
                 </div>
             </div>
         </td>

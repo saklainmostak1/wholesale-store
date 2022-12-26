@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductsCard = ({ product }) => {
-    const { image, name,  description} = product
+    const { image, name,  description, _id} = product
     // price, rating ,
     return (
         <div>
@@ -18,7 +18,7 @@ const ProductsCard = ({ product }) => {
                     </div> */}
                     <p>{description.slice(0,60)+ '...' }</p>
                     <div className='text-center'>
-                    <Link to={`${product._id}`}>
+                    <Link to={`/allproducts/${_id}`}>
                         <button className='underline btn btn-sm btn-accent mt-5'>Show Details</button>
                     </Link>
                     </div>
