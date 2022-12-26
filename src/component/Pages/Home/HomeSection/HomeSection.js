@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import img from '../../../image/img3.jpg'
 
 const HomeSection = () => {
@@ -8,10 +9,12 @@ const HomeSection = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <p className="mb-5 text-green-500 font-bold">New season trends!</p>
+                        <p className="mb-5 text-2xl text-emerald-400 font-bold">New season trends!</p>
                         <h1 className="mb-5 text-5xl font-bold">Best Summer Collection</h1>
                         <p className="mb-5">Click the link below and buy your products</p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <Link className='underline text-lg' to='/allproducts'>
+                            Get Started Shopping
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@ const RatingsCard = ({ratin}) => {
     console.log(ratin);
     return (
         <div>
-            <div className="card bg-base-100 shadow-xl">
+            <div className="card bg-emerald-100 shadow-xl">
                 <div className="card-body text-center ">
                     <h2 className="text-center text-3xl font-bold">{name}</h2>
                         <p className='text-2xl'>{email}</p>
