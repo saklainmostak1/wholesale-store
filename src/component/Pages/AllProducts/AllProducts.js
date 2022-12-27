@@ -1,9 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import OrderModal from '../OrderModal/OrderModal';
 import Loading from '../Shared/Loading/Loading';
 // import { Link } from 'react-router-dom';
 import AllProductsCard from './AllProductsCard';
 
 const AllProducts = () => {
+    const [orderProducts, setOrderProducts] = useState(null)
     // const [allProducts , setAllProducts] = useState([])
     // console.log(allProducts);
 
@@ -32,6 +35,7 @@ const AllProducts = () => {
                allProducts.map(product => <AllProductsCard
                key={product._id}
                product={product}
+               setOrderProducts={setOrderProducts}
                ></AllProductsCard>)
            }
          
@@ -41,6 +45,13 @@ const AllProducts = () => {
           <button className="underline btn-sm mt-10 btn bg-gradient-to-r from-accent to-green-400 text-white border-none">Show More</button>
           </Link>
           </div> */}
+        {
+            orderProducts &&
+            <OrderModal
+            orderProducts={orderProducts}
+            setOrderProducts={setOrderProducts}
+            ></OrderModal>
+        }
         </div>
     );
 };

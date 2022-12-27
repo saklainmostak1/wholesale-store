@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const ProductsDetailsCard = ({productsDetails}) => {
     console.log(productsDetails)
     return (
@@ -21,6 +22,7 @@ const ProductsDetailsCard = ({productsDetails}) => {
                         <button className='underline btn btn-sm btn-accent mt-5'>Show Details</button>
                     </Link>
                     </div>
+                    
                 </div>
             </div>
         </div>
