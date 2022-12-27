@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
-const OrderModal = ({orderProducts, setOrderProducts}) => {
+const Modal = ({orderProducts, setOrderProducts}) => {
     const {user} = useContext(AuthContext)
     const {name, quantity, price, image} = orderProducts
     console.log(orderProducts)
@@ -47,14 +47,12 @@ const OrderModal = ({orderProducts, setOrderProducts}) => {
            })
        
     }
-
-    
     return (
         <>
-        <input type="checkbox" id="booking-modal" className="modal-toggle" />
+        <input type="checkbox" id="order-modal" className="modal-toggle" />
         <div className="modal">
             <div className="modal-box relative">
-                <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                <label htmlFor="order-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                 <form onSubmit={handleOrder} className='grid grid-cols-1 gap-3 mt-10'>
                     <input name='product' type="text"  className="input w-full input-bordered " defaultValue={name} disabled/>
                     <input name='image' type="text"  className="input w-full input-bordered " defaultValue={image} disabled/>
@@ -80,4 +78,4 @@ const OrderModal = ({orderProducts, setOrderProducts}) => {
     );
 };
 
-export default OrderModal;
+export default Modal;

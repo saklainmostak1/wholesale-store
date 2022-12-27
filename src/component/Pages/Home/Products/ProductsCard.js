@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const ProductsCard = ({ product }) => {
+const ProductsCard = ({ product , setOrderProducts}) => {
     console.log(product);
     const { name, price , image, description, rating,  quantity, _id} = product
     // price, rating ,
@@ -19,15 +19,20 @@ const ProductsCard = ({ product }) => {
                     <p >Order Quantity : {quantity.length > 0 ? quantity[0]: 'Not Available' }</p>
                         <p >Available : {quantity.length} {quantity.length > 1 ? 'Products': 'Product'}</p>
                     <p>{description.slice(0,60)+ '...' }</p>
-                    <div className='text-center'>
+                    <div className='flex justify-evenly'>
                         
                     <Link to={`/allproducts/${_id}`}>
-                        <button className='underline btn btn-outline btn-xs'>Review Now</button>
+                        <button className='underline text-blue-300'>Review Now</button>
+                    </Link>
+                    <Link to={`/report/${_id}`}>
+                        <button className='underline text-red-500'>Report To Admin</button>
                     </Link>
                     
                     </div>
                     <div>
-                    <button className='underline btn btn-sm btn-accent mt-5'>Order Now</button>
+                    <label
+                    onClick={() => setOrderProducts(product)}
+                    htmlFor="order-modal"  className='underline btn btn-sm btn-accent mt-5'>Order Now</label>
                     </div>
                 </div>
             </div>

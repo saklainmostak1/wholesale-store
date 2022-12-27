@@ -24,7 +24,7 @@ const AllProductsCard = ({ product, setOrderProducts }) => {
                         <Link to={`/allproducts/${_id}`}>
                             <button className=' mt-5 text-blue-400 underline '>Review Now</button>
                         </Link>
-                        <Link>
+                        <Link to={`/report/${_id}`}>
                             <button className=' mt-5 text-red-400 underline '>Report to Admin</button>
                         </Link>
                     </div>

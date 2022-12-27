@@ -9,11 +9,13 @@ import ContactMessage from "../../Pages/Dashboard/ContactMessage/ContactMessage"
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import DashboardNav from "../../Pages/Dashboard/DashBoardNav/DashboardNav";
 import ManageReviews from "../../Pages/Dashboard/ManageReview/ManageReviews";
+import MyOrders from "../../Pages/Dashboard/User/MyOrders/MyOrders";
 import MyProfile from "../../Pages/Dashboard/User/MyProfile/MyProfile";
 import Home from "../../Pages/Home/Home/Home";
 import ProductsDetails from "../../Pages/Home/ProductsDetails/ProductsDetails";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import ReportProducts from "../../Pages/ReportProducts/ReportProducts";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 
 export const router = createBrowserRouter([
@@ -41,6 +43,11 @@ export const router = createBrowserRouter([
             {
                 path: '/allproducts',
                 element: <AllProducts></AllProducts>
+            },
+            {
+                path: '/report/:id',
+                element: <ReportProducts></ReportProducts>,
+                loader: ({params}) => fetch(`http://localhost:5000/allProducts/${params.id}`)
             },
             {
                 path: '/allproducts/:id',
@@ -81,6 +88,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myprofile',
                 element: <MyProfile></MyProfile>
+            },
+            {
+                path: '/dashboard/myorders',
+                element: <MyOrders></MyOrders>
             },
 
         ]

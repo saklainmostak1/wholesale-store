@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../../Shared/Loading/Loading';
+import Modal from '../Modal/Modal';
 import ProductsCard from './ProductsCard';
 
 const Products = () => {
-    // const [products , setProducts] = useState([])
+    const [orderProducts, setOrderProducts] = useState(null)
     // console.log(products);
 
     // useEffect(() =>{
@@ -16,7 +18,7 @@ const Products = () => {
     } = useQuery({
         queryKey: ['appointmentOptions'],
         queryFn: async() => {
-           const res = await   fetch('http://localhost:5000/products')
+           const res = await   fetch('http://localhost:5000/allProducts')
         const data = await res.json()
         return data
     }
@@ -30,12 +32,25 @@ const Products = () => {
       <h2 className='text-3xl font-bold text-center'>All Products</h2>
         <div className=' m-5 grid mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
            {
-               products.map(product => <ProductsCard
+               products.slice(0,6).map(product => <ProductsCard
                key={product._id}
                product={product}
+               setOrderProducts={setOrderProducts}
                ></ProductsCard>)
            }
          
+        </div>
+        <div> 
+           
+                
+               {
+                  orderProducts &&
+                  <Modal
+                  orderProducts={orderProducts}
+                  setOrderProducts={setOrderProducts}
+                  ></Modal>
+               }
+            
         </div>
         <div className='text-center'>
           <Link to={'/allproducts'}>
