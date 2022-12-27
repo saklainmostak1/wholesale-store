@@ -9,6 +9,7 @@ import ContactMessage from "../../Pages/Dashboard/ContactMessage/ContactMessage"
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import DashboardNav from "../../Pages/Dashboard/DashBoardNav/DashboardNav";
 import ManageReviews from "../../Pages/Dashboard/ManageReview/ManageReviews";
+import ReportedProducts from "../../Pages/Dashboard/ReportedProducts/ReportedProducts";
 import MyOrders from "../../Pages/Dashboard/User/MyOrders/MyOrders";
 import MyProfile from "../../Pages/Dashboard/User/MyProfile/MyProfile";
 import Home from "../../Pages/Home/Home/Home";
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/reportproducts',
+                element: <ReportedProducts></ReportedProducts>
             },
 
         ]
