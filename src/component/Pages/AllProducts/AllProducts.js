@@ -15,7 +15,7 @@ const AllProducts = () => {
     //     .then(Response => Response.json())
     //     .then(data => setAllProducts(data))
     // }, [])
-    const {data: allProducts = [],  isLoading
+    const {data: allProducts = [],  isLoading, refetch
     } = useQuery({
         queryKey: ['allProducts'],
         queryFn: async() => {
@@ -50,6 +50,7 @@ const AllProducts = () => {
             <OrderModal
             orderProducts={orderProducts}
             setOrderProducts={setOrderProducts}
+            refetch={refetch}
             ></OrderModal>
         }
         </div>

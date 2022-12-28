@@ -4,7 +4,7 @@ import Loading from '../../Shared/Loading/Loading';
 import ShowUsers from './ShowUsers';
 
 const AllUsers = () => {
-    const {data: useres = [],  isLoading
+    const {data: useres = [],  isLoading, refetch
     } = useQuery({
         queryKey: ['useres'],
         queryFn: async() => {
@@ -40,6 +40,7 @@ const AllUsers = () => {
            useres.map(users => <ShowUsers
            key={users._id}
            users={users}
+           refetch={refetch}
            ></ShowUsers>)
        }
 </tbody>

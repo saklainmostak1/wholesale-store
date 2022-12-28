@@ -1,8 +1,22 @@
 import React from 'react';
+import { toast } from 'react-hot-toast';
 
-const ShowUsers = ({users}) => {
+const ShowUsers = ({users, refetch}) => {
     console.log(users)
-    const {name, email, photo} = users
+    const {name, email, photo, _id} = users
+    const handleMakeAdmin = id =>{
+        fetch(`http://localhost:5000/users/admin/${id}`, {
+            method: 'PUT'
+        })
+        .then(Response => Response.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount > 0){
+                toast.success('SuccessFully Make Admin')
+                refetch()
+            }
+        })
+    }
 
     return (
         <tr>         
@@ -20,7 +34,10 @@ const ShowUsers = ({users}) => {
         </td>
         <td> {email}</td>
         <td>
-        <button className='btn btn-accent btn-xs'>Make Admin</button>
+            {
+                users?.role !== 'admin' &&
+                <button onClick={() => handleMakeAdmin(_id)} className='btn btn-accent btn-xs'>Make Admin</button>
+            }
         </td>
         <td>
         <button className='btn btn-warning btn-xs'>Delete</button>

@@ -12,8 +12,9 @@ const Register = () => {
     const name = form.name.value
     const email = form.email.value
     const photo = form.photo.value
+    const user = form.user.value
     const password = form.password.value
-    const users = {name, email, photo}
+    const users = {name, email, photo, role:user}
     console.log(name, email, photo, password);
 
     fetch('http://localhost:5000/users', {
@@ -72,6 +73,14 @@ const Register = () => {
           </label>
           <input type="email" name='email' placeholder="email" className="input input-bordered" required/>
         </div>
+        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Type Of User</span>
+                            </label>
+                            <select name='user' className="select select-bordered w-full max-w-xs">
+                                <option>buyers</option>
+                            </select>
+                        </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>

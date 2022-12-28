@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
-const OrderModal = ({orderProducts, setOrderProducts}) => {
+const OrderModal = ({orderProducts, setOrderProducts, refetch}) => {
     const {user} = useContext(AuthContext)
     const {name, quantity, price, image} = orderProducts
     console.log(orderProducts)
@@ -38,12 +38,17 @@ const OrderModal = ({orderProducts, setOrderProducts}) => {
            .then(data => {
             console.log(data);
             if(data.acknowledged){
+                setOrderProducts(null)
                 form.reset('')
+                refetch()
             toast.success('Order Confirmed')
            
             }
+            else{
+                toast.error(data.message)
+            }
             
-            setOrderProducts('')
+            // setOrderProducts('')
            })
        
     }
