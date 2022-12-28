@@ -18,6 +18,8 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import ReportProducts from "../../Pages/ReportProducts/ReportProducts";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import BuyerRoute from "../BuyerRoutes/BuyerRoute";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
@@ -69,35 +71,35 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allproducts',
-                element: <AllProductsDashboard></AllProductsDashboard>
+                element: <AdminRoute><AllProductsDashboard></AllProductsDashboard></AdminRoute>
             },
             {
                 path: '/dashboard/addproducts',
-                element: <AddProducts></AddProducts>
+                element: <AdminRoute><AddProducts></AddProducts></AdminRoute>
             },
             {
                 path: '/dashboard/managereviews',
-                element: <ManageReviews></ManageReviews>
+                element: <AdminRoute><ManageReviews></ManageReviews></AdminRoute>
             },
             {
                 path: '/dashboard/contactmessage',
-                element: <ContactMessage></ContactMessage>
+                element: <AdminRoute><ContactMessage></ContactMessage></AdminRoute>
             },
             {
                 path: '/dashboard/allusers',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: '/dashboard/myprofile',
-                element: <MyProfile></MyProfile>
+                element: <BuyerRoute><MyProfile></MyProfile></BuyerRoute>
             },
             {
                 path: '/dashboard/myorders',
-                element: <MyOrders></MyOrders>
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
             },
             {
                 path: '/dashboard/reportproducts',
-                element: <ReportedProducts></ReportedProducts>
+                element: <AdminRoute><ReportedProducts></ReportedProducts></AdminRoute>
             },
 
         ]

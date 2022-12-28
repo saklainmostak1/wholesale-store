@@ -1,12 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useToken from '../../hooks/useToken';
 import img from '../Register/login.svg'
 
 const Register = () => {
   const {createUser} = useContext(AuthContext)
+  const [createdUserEmail, setCreatedUserEmail] = useState('')
+  const [token] = useToken(createdUserEmail)
   const navigate = useNavigate()
+  if(token){
+    navigate('/')
+  }
+
   const handleRegister = event =>{
     event.preventDefault()
     const form = event.target
@@ -28,7 +35,7 @@ const Register = () => {
     })
     .then(Response => Response.json())
     .then(data => {
-      getUserToken(email)
+      setCreatedUserEmail(email)
       console.log(data)
       if (data.acknowledged) {
         // navigate('/')
@@ -49,16 +56,16 @@ const Register = () => {
     })
   }
 
-   const getUserToken = email =>{
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-        .then(Response => Response.json())
-        .then(data => {
-          if(data.accessToken){
-            localStorage.setItem('accessToken', data.accessToken)
-            navigate('/')
-          }
-        })
-   }
+  //  const getUserToken = email =>{
+  //       fetch(`http://localhost:5000/jwt?email=${email}`)
+  //       .then(Response => Response.json())
+  //       .then(data => {
+  //         if(data.accessToken){
+  //           localStorage.setItem('accessToken', data.accessToken)
+  //           navigate('/')
+  //         }
+  //       })
+  //  }
 
     return (
         <div>

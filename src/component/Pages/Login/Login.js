@@ -1,14 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useToken from '../../hooks/useToken';
 import img from '../Login/login.svg'
 
 const Login = () => {
   const {loginWithEmailPAss} = useContext(AuthContext)
+  const [loginUserEmail, setLoginUserEmail] = useState('')
+  const [token] = useToken(loginUserEmail)
+
   const navigate = useNavigate()
   const location = useLocation()
 
   const from = location.state?.from?.pathname || '/'
+  if(token){
+    navigate(from, {replace: true})
+  }
 
   const handleLogin = event =>{
     event.preventDefault()
@@ -21,7 +28,8 @@ const Login = () => {
     .then(result => {
       const user = result.user
       console.log(user)
-      navigate(from, {replace: true})
+      setLoginUserEmail(email)
+      
 
     })
     .catch(error => {
