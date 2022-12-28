@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import img from '../Register/login.svg'
 
 const Register = () => {
   const {createUser} = useContext(AuthContext)
+  const navigate = useNavigate()
   const handleRegister = event =>{
     event.preventDefault()
     const form = event.target
@@ -27,11 +28,12 @@ const Register = () => {
     })
     .then(Response => Response.json())
     .then(data => {
+      getUserToken(email)
       console.log(data)
       if (data.acknowledged) {
-       
+        // navigate('/')
         toast.success('Register Sucessfully')
-        // refetch()
+       
     }
     })
     .catch(error => console.error(error))
@@ -39,12 +41,25 @@ const Register = () => {
     createUser(email , password)
     .then(result => {
       const user = result.user
+     
       console.log(user)
     })
     .catch(error => {
       console.error(error)
     })
   }
+
+   const getUserToken = email =>{
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+        .then(Response => Response.json())
+        .then(data => {
+          if(data.accessToken){
+            localStorage.setItem('accessToken', data.accessToken)
+            navigate('/')
+          }
+        })
+   }
+
     return (
         <div>
             <div className="hero my-20 w-full">

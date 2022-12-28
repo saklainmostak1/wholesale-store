@@ -18,6 +18,7 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import ReportProducts from "../../Pages/ReportProducts/ReportProducts";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/allproducts',
-                element: <AllProducts></AllProducts>
+                element: <PrivateRoutes><AllProducts></AllProducts></PrivateRoutes>
             },
             {
                 path: '/report/:id',
@@ -59,12 +60,12 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardNav></DashboardNav>,
+        element: <PrivateRoutes><DashboardNav></DashboardNav></PrivateRoutes>,
         errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
             },
             {
                 path: '/dashboard/allproducts',

@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import Loading from '../../Shared/Loading/Loading';
 import Modal from '../Modal/Modal';
 import ProductsCard from './ProductsCard';
 
 const Products = () => {
     const [orderProducts, setOrderProducts] = useState(null)
+    const {user} = useContext(AuthContext)
     // console.log(products);
 
     // useEffect(() =>{
@@ -52,11 +54,18 @@ const Products = () => {
                }
             
         </div>
-        <div className='text-center'>
+       {
+          user?.uid ? 
+          <>
+           <div className='text-center'>
           <Link to={'/allproducts'}>
           <button className="underline btn-sm mt-10 btn bg-gradient-to-r from-accent to-green-400 text-white border-none">Show More</button>
           </Link>
           </div>
+          </>
+          :
+          ''
+       }
         </div>
     );
 };

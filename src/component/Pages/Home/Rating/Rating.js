@@ -39,7 +39,10 @@ const Rating = () => {
     return (
         <div>
               
-            <div className="hero my-20 w-full">
+           {
+              user?.uid ? 
+              <>
+               <div className="hero my-20 w-full">
         <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lag:flex-row ">
           <div className="text-center lg:text-left">
             <img className='w-3/4' src={img} alt="" />
@@ -59,6 +62,11 @@ const Rating = () => {
           </div>
         </div>
       </div>
+              
+              </>
+              :
+              ""
+           }
         </div>
     );
 };

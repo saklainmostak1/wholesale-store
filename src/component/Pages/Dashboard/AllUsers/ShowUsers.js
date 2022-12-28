@@ -1,9 +1,9 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
 
-const ShowUsers = ({users, refetch}) => {
+const ShowUsers = ({users, refetch, i}) => {
     console.log(users)
-    const {name, email, photo, _id} = users
+    const {name, email, photo, _id, role} = users
     const handleMakeAdmin = id =>{
         fetch(`http://localhost:5000/users/admin/${id}`, {
             method: 'PUT'
@@ -19,7 +19,8 @@ const ShowUsers = ({users, refetch}) => {
     }
 
     return (
-        <tr>         
+        <tr>      
+            <td>{i+1}</td>   
         <td>
             <div className="flex items-center space-x-3">
                 <div className="avatar">
@@ -33,6 +34,7 @@ const ShowUsers = ({users, refetch}) => {
             <span className="badge badge-ghost">{name}</span>          
         </td>
         <td> {email}</td>
+        <td>{role}</td>
         <td>
             {
                 users?.role !== 'admin' &&

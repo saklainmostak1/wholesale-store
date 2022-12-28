@@ -1,12 +1,14 @@
 import React from 'react';
 
-const OrderShow = ({order}) => {
+const OrderShow = ({order, i}) => {
     console.log(order);
     const {name, productName, price, image} = order
     return (
-        <tr>         
+        <tr>    
+            <td>{i+1}</td>     
         <td>
             <div className="flex items-center space-x-3">
+                
                 <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                         <img src={image} alt="" />

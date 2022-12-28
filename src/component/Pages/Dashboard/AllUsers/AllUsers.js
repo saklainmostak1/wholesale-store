@@ -29,17 +29,20 @@ const AllUsers = () => {
         <input type="checkbox" className="checkbox" />
       </label>
     </th>
+    <th></th>
     <th>Name</th>
     <th>Email</th>
+    <th>Type</th>
     <th>Make Admin</th>
     <th>Delete</th>
   </tr>
 </thead>
 <tbody> 
 {
-           useres.map(users => <ShowUsers
+           useres.map((users, i) => <ShowUsers
            key={users._id}
            users={users}
+           i={i}
            refetch={refetch}
            ></ShowUsers>)
        }
