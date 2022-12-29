@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
 
-const ShowUsers = ({users, refetch, i}) => {
+const ShowUsers = ({users, refetch,i, handleDelete}) => {
     console.log(users)
     const {name, email, photo, _id, role} = users
     const handleMakeAdmin = id =>{
@@ -42,7 +42,7 @@ const ShowUsers = ({users, refetch, i}) => {
             }
         </td>
         <td>
-        <button className='btn btn-warning btn-xs'>Delete</button>
+        <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
         </td>
     </tr>
     );

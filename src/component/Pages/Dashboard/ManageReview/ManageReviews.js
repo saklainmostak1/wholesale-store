@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import Loading from '../../Shared/Loading/Loading';
 import ShowReview from './ShowReview';
 
 const ManageReviews = () => {
-    const {data: reviews = [],  isLoading
+    const {data: reviews = [],  isLoading, refetch
     } = useQuery({
         queryKey: ['reviews'],
         queryFn: async() => {
@@ -16,6 +17,26 @@ const ManageReviews = () => {
     if(isLoading){
         return <Loading></Loading>
     }
+    const handleDelete = id =>{
+      const proceed = window.confirm('Are You Sure delete')
+          
+         if(proceed){
+          fetch(`http://localhost:5000/ratings/${id}`, {
+              method: "DELETE",
+              headers: {
+                  authorization: `bearer ${localStorage.getItem('accessToken')}`
+              }
+          })
+          .then(Response => Response.json())
+          .then(data => {
+              if(data.deletedCount > 0){
+                  refetch()
+                  toast.success('Delete Successfully')
+              }
+             
+          })
+         }
+  }
     return (
         <div>
             <h2 className="text-5xl mb-5">Website Reviews</h2>
@@ -41,6 +62,7 @@ const ManageReviews = () => {
                reviews.map(review => <ShowReview
                key={review._id}
                review={review}
+               handleDelete={handleDelete}
                ></ShowReview>)
            }
     </tbody>

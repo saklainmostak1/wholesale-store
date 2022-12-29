@@ -24,7 +24,7 @@ const DashboardNav = () => {
                             isAdmin &&
                             <>
                                 <li><Link to='/dashboard'>DashBoard</Link></li>
-                                {/* <li><Link to='/dashboard/myprofile'>My Profile</Link></li> */}
+                                <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
                                 <li><Link to='/dashboard/allusers'>All Users</Link></li>
                                 <li><Link to='/dashboard/allproducts'>All Products</Link></li>
                                 <li><Link to='/dashboard/addproducts'>Add A Products</Link></li>

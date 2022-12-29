@@ -1,8 +1,8 @@
 import React from 'react';
 
-const MyReviewTable = ({myReview, i}) => {
+const MyReviewTable = ({myReview, i, handleDelete}) => {
     console.log(myReview);
-    const {name, email, rating, text, photo} = myReview
+    const {name, email, rating, text, photo, _id} = myReview
     return (
         <tr>      
         <td>{i+1}</td>   
@@ -24,7 +24,7 @@ const MyReviewTable = ({myReview, i}) => {
         {text}
     </td>
     <td><button className='btn btn-accent btn-xs'>Update</button></td>
-    <td><button className='btn btn-warning btn-xs'>Delete</button></td>
+    <td><button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button></td>
 </tr>
     );
 };

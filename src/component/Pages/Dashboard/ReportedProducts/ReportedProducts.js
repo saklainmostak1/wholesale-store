@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import Loading from '../../Shared/Loading/Loading';
 import ShowReportedProducts from './ShowReportedProducts';
 
 const ReportedProducts = () => {
-    const {data: reportProducts = [],  isLoading
+    const {data: reportProducts = [],  isLoading, refetch
     } = useQuery({
         queryKey: ['reportProducts'],
         queryFn: async() => {
@@ -16,6 +17,26 @@ const ReportedProducts = () => {
     if(isLoading){
         return <Loading></Loading>
     }
+    const handleDelete = id =>{
+      const proceed = window.confirm('Are You Sure delete')
+          
+         if(proceed){
+          fetch(`http://localhost:5000/report/${id}`, {
+              method: "DELETE",
+              headers: {
+                  authorization: `bearer ${localStorage.getItem('accessToken')}`
+              }
+          })
+          .then(Response => Response.json())
+          .then(data => {
+              if(data.deletedCount > 0){
+                  refetch()
+                  toast.success('Delete Successfully')
+              }
+             
+          })
+         }
+  }
     return (
         <div>
         <h2 className="text-5xl">You Have</h2>
@@ -43,6 +64,7 @@ const ReportedProducts = () => {
                   key={report._id}
                   report={report}
                   i={i}
+                  handleDelete={handleDelete}
                 ></ShowReportedProducts>)
               }
             </tbody>

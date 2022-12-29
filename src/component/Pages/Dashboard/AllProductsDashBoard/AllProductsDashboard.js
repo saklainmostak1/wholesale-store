@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import Loading from '../../Shared/Loading/Loading';
 import ProductShow from './ProductShow';
 
 const AllProductsDashboard = () => {
-  const { data: allProducts = [], isLoading
+  const { data: allProducts = [], isLoading, refetch
   } = useQuery({
     queryKey: ['allProducts'],
     queryFn: async () => {
@@ -16,6 +17,26 @@ const AllProductsDashboard = () => {
   if (isLoading) {
     return <Loading></Loading>
   }
+  const handleDelete = id =>{
+    const proceed = window.confirm('Are You Sure delete')
+        
+       if(proceed){
+        fetch(`http://localhost:5000/orders/${id}`, {
+            method: "DELETE",
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(Response => Response.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                refetch()
+                toast.success('Delete Successfully')
+            }
+           
+        })
+       }
+}
   return (
 
     <div>
@@ -42,6 +63,7 @@ const AllProductsDashboard = () => {
               allProducts.map(product => <ProductShow
                 key={product._id}
                 product={product}
+                handleDelete={handleDelete}
               ></ProductShow>)
             }
           </tbody>

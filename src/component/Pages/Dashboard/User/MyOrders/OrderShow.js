@@ -1,8 +1,10 @@
 import React from 'react';
 
-const OrderShow = ({order, i}) => {
+const OrderShow = ({order, i, handleDelete}) => {
     console.log(order);
-    const {name, productName, price, image} = order
+    const {name, productName, price, image, _id} = order
+  
+    
     return (
         <tr>    
             <td>{i+1}</td>     
@@ -22,7 +24,7 @@ const OrderShow = ({order, i}) => {
         <td> {productName}</td>
         <td> {price}</td>
         <td>
-        <button className='btn btn-warning btn-xs'>Delete</button>
+        <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
         </td>
         <td>
         <button className='btn btn-accent btn-xs'>PAY</button>

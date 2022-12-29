@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
-const ShowReview = ({review}) => {
+const ShowReview = ({review, handleDelete}) => {
     const {user} = useContext(AuthContext)
     console.log(user)
-    const {name, rating, message, email} = review
+    const {name, rating, message, email, _id} = review
     console.log(review);
     return (
         <tr>         
@@ -27,7 +27,7 @@ const ShowReview = ({review}) => {
             <p>{message}</p>
         </td>
         <td>
-        <button className='btn btn-xs'>Delete</button>
+        <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
         </td>
     </tr>
     );

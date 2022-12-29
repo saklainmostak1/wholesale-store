@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
 
-const ProductShow = ({ product }) => {
-    const {name, image, price , rating} = product
+const ProductShow = ({ product, handleDelete }) => {
+    const {name, image, price , rating, _id} = product
     console.log(product)
     return (
         <tr>
@@ -23,10 +23,10 @@ const ProductShow = ({ product }) => {
             <td>{price} TK</td>
             <td>{rating} <FaStar className='text-orange-300'></FaStar> </td>
             <td>
-                <button className='btn btn-xs'>Delete</button>
+                <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
             </td>
             <td>
-            <button className='btn btn-xs'>Update</button>
+            <button className='btn btn-primary btn-xs'>Update</button>
             </td>
 
         </tr>

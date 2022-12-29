@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ShowReportedProducts = ({report, i}) => {
-    const {name, email, products, description, image} = report
+const ShowReportedProducts = ({report, i, handleDelete}) => {
+    const {name, email, products, description, image, _id} = report
     console.log(report);
     return (
         <tr>
@@ -26,7 +26,7 @@ const ShowReportedProducts = ({report, i}) => {
             <p>{description}</p>
         </td>
         <td>
-        <button className='btn btn-xs'>Delete</button>
+        <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
         </td>
 
     </tr>

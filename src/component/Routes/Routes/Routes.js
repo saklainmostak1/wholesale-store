@@ -92,7 +92,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/myprofile',
-                element: <BuyerRoute><MyProfile></MyProfile></BuyerRoute>
+                element: <MyProfile></MyProfile>
             },
             {
                 path: '/dashboard/myorders',

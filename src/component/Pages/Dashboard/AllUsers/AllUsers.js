@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import Loading from '../../Shared/Loading/Loading';
 import ShowUsers from './ShowUsers';
 
@@ -16,6 +17,26 @@ const AllUsers = () => {
     if(isLoading){
         return <Loading></Loading>
     }
+    const handleDelete = id =>{
+      const proceed = window.confirm('Are You Sure delete')
+          
+         if(proceed){
+          fetch(`http://localhost:5000/users/${id}`, {
+              method: "DELETE",
+              headers: {
+                  authorization: `bearer ${localStorage.getItem('accessToken')}`
+              }
+          })
+          .then(Response => Response.json())
+          .then(data => {
+              if(data.deletedCount > 0){
+                  refetch()
+                  toast.success('Delete Successfully')
+              }
+             
+          })
+         }
+  }
     return (
         <div>
         <h2 className="text-5xl mb-5">Website Reviews</h2>
@@ -44,6 +65,7 @@ const AllUsers = () => {
            users={users}
            i={i}
            refetch={refetch}
+           handleDelete={handleDelete}
            ></ShowUsers>)
        }
 </tbody>
