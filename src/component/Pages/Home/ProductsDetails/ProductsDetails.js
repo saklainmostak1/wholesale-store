@@ -22,8 +22,8 @@ const {name, price , image, description, rating,  quantity} = productsDetailss
                        
                         <p>Ratings : {rating}</p>
                        
-                        <p className='mt-3'>Order Quantity : {quantity.length > 0 ? quantity[0]: 'Not Available' }</p>
-                        <p className='mt-3'>Available : {quantity.length} {quantity.length > 1 ? 'Products': 'Product'}</p>
+                        {/* <p className='mt-3'>Order Quantity : {quantity.length > 0 ? quantity[0]: 'Not Available' }</p>
+                        <p className='mt-3'>Available : {quantity.length} {quantity.length > 1 ? 'Products': 'Product'}</p> */}
                     </div>
                     <p className='text-center'>{description}</p>
                    

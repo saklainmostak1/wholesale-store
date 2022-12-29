@@ -18,8 +18,8 @@ const ProductsCard = ({ product , setOrderProducts}) => {
                     <h2 className="text-center text-green-500 text-xl font-bold">{name}</h2>
                     <p>Price: {price}</p>
                     <p>Rating: {rating}</p>
-                    <p >Order Quantity : {quantity.length > 0 ? quantity[0]: 'Not Available' }</p>
-                        <p >Available : {quantity.length} {quantity.length > 1 ? 'Products': 'Product'}</p>
+                    {/* <p >Order Quantity : {quantity.length > 0 ? quantity[0]: 'Not Available' }</p>
+                        <p >Available : {quantity.length} {quantity.length > 1 ? 'Products': 'Product'}</p> */}
                     <p>{description.slice(0,56)+ '...' }</p>
                     <div>
                         {
@@ -28,7 +28,7 @@ const ProductsCard = ({ product , setOrderProducts}) => {
                                <div className='flex justify-evenly'>
                         
                         <Link to={`/allproducts/${_id}`}>
-                            <button className='underline text-blue-300'>Review Now</button>
+                            <button className='underline text-blue-300'>Show Details</button>
                         </Link>
                         <Link to={`/report/${_id}`}>
                             <button className='underline text-red-500'>Report To Admin</button>

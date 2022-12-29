@@ -15,14 +15,14 @@ const AllProductsCard = ({ product, setOrderProducts }) => {
                     <div className='text-center mb-3'>
                         <p className='mb-3'>Price : {price} TK</p>
                         <p>Ratings : {rating}</p>
-                        <p className='mt-3'>Order Quantity : {quantity.length > 0 ? quantity[0] : 'Not Available'}</p>
-                        <p className='mt-3'>Available : {quantity.length} {quantity.length > 1 ? 'Products' : 'Product'}</p>
+                        {/* <p className='mt-3'>Order Quantity : {quantity.length > 0 ? quantity[0] : 'Not Available'}</p>
+                        <p className='mt-3'>Available : {quantity.length} {quantity.length > 1 ? 'Products' : 'Product'}</p> */}
                     </div>
-                    <p>{description.slice(0, 60) + '...'}</p>
+                    <p className='text-center'>{description.slice(0, 56) + '...'}</p>
 
                     <div className='text-center flex justify-evenly'>
                         <Link to={`/allproducts/${_id}`}>
-                            <button className=' mt-5 text-blue-400 underline '>Review Now</button>
+                            <button className=' mt-5 text-blue-400 underline '>Show Details</button>
                         </Link>
                         <Link to={`/report/${_id}`}>
                             <button className=' mt-5 text-red-400 underline '>Report to Admin</button>
