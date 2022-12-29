@@ -26,23 +26,6 @@ const RatingsCard = ({ ratin }) => {
                     <p >{message}</p>
                 </div>
             </div>
-            {/* <div className="card bg-emerald-100 shadow-xl">
-                <div className="card-body text-center ">
-                    <div className="avatar ">
-                        <div className="w-52 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src={user?.photoURL} alt='' />
-                        </div>
-                    </div>
-                    <h2 className="text-center text-3xl font-bold">{name}</h2>
-                    <p >{email}</p>
-                    <div className='flex'>
-                    <p>Rating: {rating} </p>
-                    <p className='text-orange-300 mt-1'><FaStar></FaStar></p>
-
-                    </div>
-                    <p >{message}</p>
-                </div>
-            </div> */}
         </div>
     );
 };

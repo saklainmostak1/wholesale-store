@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
 
 
 const ProductsCard = ({ product , setOrderProducts}) => {
@@ -17,7 +18,10 @@ const ProductsCard = ({ product , setOrderProducts}) => {
                 <div className="card-body text-center">
                     <h2 className="text-center text-green-500 text-xl font-bold">{name}</h2>
                     <p>Price: {price}</p>
-                    <p>Rating: {rating}</p>
+                    <div className="card-actions">
+                        <p> Rating: {rating} </p>
+                        <p className='text-orange-300 mt-1'><FaStar></FaStar></p>
+                    </div>
                     {/* <p >Order Quantity : {quantity.length > 0 ? quantity[0]: 'Not Available' }</p>
                         <p >Available : {quantity.length} {quantity.length > 1 ? 'Products': 'Product'}</p> */}
                     <p>{description.slice(0,56)+ '...' }</p>

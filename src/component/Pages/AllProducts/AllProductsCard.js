@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const AllProductsCard = ({ product, setOrderProducts }) => {
@@ -14,7 +15,10 @@ const AllProductsCard = ({ product, setOrderProducts }) => {
                     <h2 className="text-center text-green-500 text-xl font-bold">{name}</h2>
                     <div className='text-center mb-3'>
                         <p className='mb-3'>Price : {price} TK</p>
-                        <p>Ratings : {rating}</p>
+                        <div className="card-actions">
+                            <p> Rating: {rating} </p>
+                            <p className='text-orange-300 mt-1'><FaStar></FaStar></p>
+                        </div>
                         {/* <p className='mt-3'>Order Quantity : {quantity.length > 0 ? quantity[0] : 'Not Available'}</p>
                         <p className='mt-3'>Available : {quantity.length} {quantity.length > 1 ? 'Products' : 'Product'}</p> */}
                     </div>
@@ -32,11 +36,11 @@ const AllProductsCard = ({ product, setOrderProducts }) => {
                         </Link>
                     </div>
                     <div className='text-center'>
-                        <label 
-                        disabled={quantity.length === 0}
-                        onClick={() => setOrderProducts(product)} 
-                         htmlFor="booking-modal" 
-                         className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
+                        <label
+                            disabled={quantity.length === 0}
+                            onClick={() => setOrderProducts(product)}
+                            htmlFor="booking-modal"
+                            className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
                     </div>
                 </div>
             </div>
