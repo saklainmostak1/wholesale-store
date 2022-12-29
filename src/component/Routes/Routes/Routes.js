@@ -12,6 +12,7 @@ import ManageReviews from "../../Pages/Dashboard/ManageReview/ManageReviews";
 import ReportedProducts from "../../Pages/Dashboard/ReportedProducts/ReportedProducts";
 import MyOrders from "../../Pages/Dashboard/User/MyOrders/MyOrders";
 import MyProfile from "../../Pages/Dashboard/User/MyProfile/MyProfile";
+import MyReviews from "../../Pages/Dashboard/User/MyReviews/MyReviews";
 import Home from "../../Pages/Home/Home/Home";
 import ProductsDetails from "../../Pages/Home/ProductsDetails/ProductsDetails";
 import Login from "../../Pages/Login/Login";
@@ -54,8 +55,8 @@ export const router = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/allProducts/${params.id}`)
             },
             {
-                path: '/allproducts/:id',
-                element: <ProductsDetails></ProductsDetails>,
+                path: '/productsDetails/:id',
+                element:<ProductsDetails></ProductsDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/allProducts/${params.id}`)
             },
         ]
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/myorders',
                 element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
+            },
+            {
+                path: '/dashboard/myreviews',
+                element: <BuyerRoute><MyReviews></MyReviews></BuyerRoute>
             },
             {
                 path: '/dashboard/reportproducts',

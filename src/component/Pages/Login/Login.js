@@ -1,11 +1,15 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useToken from '../../hooks/useToken';
 import img from '../Login/login.svg'
 
 const Login = () => {
-  const {loginWithEmailPAss} = useContext(AuthContext)
+  const {loginWithEmailPAss, providerLogin} = useContext(AuthContext)
+  const googleProvider = new GoogleAuthProvider()
   const [loginUserEmail, setLoginUserEmail] = useState('')
   const [token] = useToken(loginUserEmail)
 
@@ -15,6 +19,7 @@ const Login = () => {
   const from = location.state?.from?.pathname || '/'
   if(token){
     navigate(from, {replace: true})
+    toast.success('Successfully Login!');
   }
 
   const handleLogin = event =>{
@@ -29,12 +34,23 @@ const Login = () => {
       const user = result.user
       console.log(user)
       setLoginUserEmail(email)
+      toast.success('Successfully Login!');
       
 
     })
     .catch(error => {
       console.error(error)
     })
+  }
+  const handleGoogleSignIn = () => {
+    return providerLogin(googleProvider)
+      .then(result => {
+        const user = result.user
+        console.log(user);
+        toast.success('Successfully Login!');
+        navigate(from, { replace: true })
+      })
+      .catch(error => console.error(error))
   }
     return (
         <div>
@@ -66,10 +82,14 @@ const Login = () => {
                 <input type="submit" className="btn btn-primary" value="login" />
               </div>
               <label className="label">
-                <p className='text-center mt-5'>New To WholeSale Store - <Link className='text-orange-600 font-bold' to='/register'>Sign Up</Link> </p>
+                <p className='text-center mt-5'>New To Here - <Link className='text-orange-600 font-bold' to='/register'>Sign Up</Link> </p>
               </label>
+              
+              <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle> google Login</button>
+              
             </form>
           </div>
+          
         </div>
       </div>
         </div>

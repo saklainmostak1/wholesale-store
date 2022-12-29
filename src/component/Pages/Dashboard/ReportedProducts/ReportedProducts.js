@@ -29,6 +29,7 @@ const ReportedProducts = () => {
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </th>
+                <th>Image</th>
                 <th>Products Name</th>
                 <th>Name</th>
                 <th>Email</th>
@@ -38,9 +39,10 @@ const ReportedProducts = () => {
             </thead>
             <tbody>
               {
-                reportProducts.map(report => <ShowReportedProducts
+                reportProducts.map((report, i) => <ShowReportedProducts
                   key={report._id}
                   report={report}
+                  i={i}
                 ></ShowReportedProducts>)
               }
             </tbody>

@@ -21,9 +21,12 @@ const AllProductsCard = ({ product, setOrderProducts }) => {
                     <p className='text-center'>{description.slice(0, 56) + '...'}</p>
 
                     <div className='text-center flex justify-evenly'>
-                        <Link to={`/allproducts/${_id}`}>
+                        <Link to={`/productsDetails/${_id}`}>
                             <button className=' mt-5 text-blue-400 underline '>Show Details</button>
                         </Link>
+                        {/* <Link to={`/allproducts/${_id}`}>
+                            <button className=' mt-5 text-blue-400 underline '>Show Details</button>
+                        </Link> */}
                         <Link to={`/report/${_id}`}>
                             <button className=' mt-5 text-red-400 underline '>Report to Admin</button>
                         </Link>

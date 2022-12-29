@@ -1,17 +1,23 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { FaGoogle } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useToken from '../../hooks/useToken';
 import img from '../Register/login.svg'
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext)
+  const {createUser, providerLogin, updateUser} = useContext(AuthContext)
   const [createdUserEmail, setCreatedUserEmail] = useState('')
+  const googleProvider = new GoogleAuthProvider()
   const [token] = useToken(createdUserEmail)
   const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
   if(token){
-    navigate('/')
+    navigate(from, {replace: true})
+    toast.success('Successfully Register!');
   }
 
   const handleRegister = event =>{
@@ -50,11 +56,37 @@ const Register = () => {
       const user = result.user
      
       console.log(user)
+      handleUpdateProfile(name, photo)
     })
     .catch(error => {
       console.error(error)
     })
   }
+  const handleUpdateProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL
+    }
+
+
+    updateUser(profile)
+      .then(() => { })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+  const handleGoogleSignIn = () => {
+    return providerLogin(googleProvider)
+      .then(result => {
+        const user = result.user
+        console.log(user);
+        toast.success('Successfully Register!');
+        navigate(from, { replace: true })
+      })
+      .catch(error => console.error(error))
+  }
+  
+  
 
   //  const getUserToken = email =>{
   //       fetch(`http://localhost:5000/jwt?email=${email}`)
@@ -118,6 +150,7 @@ const Register = () => {
         <label className="label">
            <p className='text-center mt-5'>Already Have An Account - <Link className='text-orange-600 font-bold' to='/login'>Login</Link> </p>
           </label>
+          <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info"><FaGoogle></FaGoogle> google Login</button>
       </form>
     </div>
   </div>

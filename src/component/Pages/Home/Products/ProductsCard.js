@@ -27,7 +27,7 @@ const ProductsCard = ({ product , setOrderProducts}) => {
                            <>
                                <div className='flex justify-evenly'>
                         
-                        <Link to={`/allproducts/${_id}`}>
+                        <Link to={`/productsDetails/${_id}`}>
                             <button className='underline text-blue-300'>Show Details</button>
                         </Link>
                         <Link to={`/report/${_id}`}>

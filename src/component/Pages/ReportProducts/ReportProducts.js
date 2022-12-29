@@ -10,11 +10,12 @@ const ReportProducts = () => {
         event.preventDefault()
         const form = event.target
         const name = form.name.value
+        const image = form.image.value
         const products = form.products.value
         const email = form.email.value
         const description = form.description.value
        
-        const reports = {name, email, description, products}
+        const reports = {name, image, email, description, products}
     
         fetch('http://localhost:5000/report', {
           method: 'POST',
@@ -37,6 +38,7 @@ const ReportProducts = () => {
                 <h2 className="text-4xl text-center mb-16">Report To Admin</h2>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name='products' type="text" placeholder="Products Name" defaultValue={allProducts.name} className="input input-bordered input-success w-full " required disabled />
+                    <input name='image' type="text" placeholder="Products Name" defaultValue={allProducts.image} className="input input-bordered input-success w-full " required disabled />
                     <input name='name' type="text" placeholder="Your Name" className="input input-bordered input-success w-full " required />
                     <input name='email' defaultValue={user?.email} type="email" placeholder="Your Email" className="input input-bordered input-success w-full " required  disabled/>
                 </div>
