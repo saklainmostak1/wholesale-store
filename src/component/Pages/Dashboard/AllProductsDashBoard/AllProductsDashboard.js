@@ -21,7 +21,7 @@ const AllProductsDashboard = () => {
     const proceed = window.confirm('Are You Sure delete')
         
        if(proceed){
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`http://localhost:5000/allProducts/${id}`, {
             method: "DELETE",
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -40,7 +40,7 @@ const AllProductsDashboard = () => {
   return (
 
     <div>
-      <h2 className="text-5xl">You Have</h2>
+      <h2 className="text-5xl mt-10 mb-10 text-center">You Have {allProducts.length} products</h2>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
 

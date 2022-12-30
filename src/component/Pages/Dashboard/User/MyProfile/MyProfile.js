@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 import Loading from '../../../Shared/Loading/Loading';
 
@@ -25,6 +26,7 @@ const MyProfile = () => {
 
     return (
         <div className='mt-48 grid grid-cols-1 lg:grid-cols-1 md:grid-cols-1'>
+            <h2 className='text-4xl text-center'>User Profile</h2>
             {
                 myProfile.map(profile =>
                     
@@ -40,8 +42,11 @@ const MyProfile = () => {
                         <div className="card-body items-center text-center">
                             <h2 className="card-title">Name : {profile?.name}</h2>
                             <p className='mt-5 text-xl'>Email : {profile?.email}</p>
+                            <p className='mt-5 text-xl'>Role : {profile?.role}</p>
                             <div className="card-actions">
-                                <button className=" mt-5 btn btn-primary btn-xs">Edit Profile</button>
+                               <Link to={`/dashboard/update/${profile._id}`}>
+                               <button className=" mt-5 btn btn-primary btn-xs">Edit Profile</button>
+                               </Link>
                             </div>
                         </div>
                     </div>

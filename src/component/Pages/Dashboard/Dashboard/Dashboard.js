@@ -28,7 +28,7 @@ const Dashboard = () => {
                 users.map(profile =>
 
                     <div >
-                         <h2 className='text-center text-green-600 font-bold text-6xl'>Welcome {profile.role}  to dashboard</h2>
+                         <h2 className='text-center text-green-600 font-bold text-6xl'>Welcome to {profile.role}  dashboard</h2>
                     </div>
 
                 )

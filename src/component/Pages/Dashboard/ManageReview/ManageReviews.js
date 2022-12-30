@@ -39,7 +39,7 @@ const ManageReviews = () => {
   }
     return (
         <div>
-            <h2 className="text-5xl mb-5">Website Reviews</h2>
+            <h2 className="text-5xl mb-10 text-center mt-10">Website Reviews</h2>
             <div className="overflow-x-auto w-full">
   <table className="table w-full">
    

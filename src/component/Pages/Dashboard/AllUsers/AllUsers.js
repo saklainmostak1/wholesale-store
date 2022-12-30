@@ -39,7 +39,7 @@ const AllUsers = () => {
   }
     return (
         <div>
-        <h2 className="text-5xl mb-5">Website Reviews</h2>
+        <h2 className="text-5xl text-center mb-10 mt-10">All Users</h2>
         <div className="overflow-x-auto w-full">
 <table className="table w-full">
 

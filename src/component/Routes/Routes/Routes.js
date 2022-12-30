@@ -6,12 +6,13 @@ import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts";
 import AllProductsDashboard from "../../Pages/Dashboard/AllProductsDashBoard/AllProductsDashboard";
 import AllProductsReviews from "../../Pages/Dashboard/AllProductsReviews/AllProductsReviews";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
-import AllUsersOrders from "../../Pages/Dashboard/AllUsersOrders/AllUsersOrders";
+
 import ContactMessage from "../../Pages/Dashboard/ContactMessage/ContactMessage";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import DashboardNav from "../../Pages/Dashboard/DashBoardNav/DashboardNav";
 import ManageReviews from "../../Pages/Dashboard/ManageReview/ManageReviews";
 import ReportedProducts from "../../Pages/Dashboard/ReportedProducts/ReportedProducts";
+import UpdateProfile from "../../Pages/Dashboard/UpdateProfile/UpdateProfile";
 import MyOrders from "../../Pages/Dashboard/User/MyOrders/MyOrders";
 import MyProfile from "../../Pages/Dashboard/User/MyProfile/MyProfile";
 import MyReviews from "../../Pages/Dashboard/User/MyReviews/MyReviews";
@@ -97,10 +98,6 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
-                path: '/dashboard/allusersorders',
-                element: <AdminRoute><AllUsersOrders></AllUsersOrders></AdminRoute>
-            },
-            {
                 path: '/dashboard/myprofile',
                 element: <MyProfile></MyProfile>
             },
@@ -115,6 +112,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/reportproducts',
                 element: <AdminRoute><ReportedProducts></ReportedProducts></AdminRoute>
+            },
+            {
+                path: '/dashboard/update/:id',
+                element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>,
+                loader: ({params}) => fetch(`http://localhost:5000/users/${params.id}`)
             },
 
         ]

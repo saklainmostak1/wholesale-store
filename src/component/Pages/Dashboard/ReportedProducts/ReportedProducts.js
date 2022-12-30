@@ -39,7 +39,7 @@ const ReportedProducts = () => {
   }
     return (
         <div>
-        <h2 className="text-5xl">You Have</h2>
+        <h2 className="text-5xl mt-10 mb-10 text-center">Reported Products</h2>
         <div className="overflow-x-auto w-full">
           <table className="table w-full">
   
