@@ -1,19 +1,24 @@
+
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import img from '../../../image/contact1.png'
 
+
 const Rating = () => {
   const {user} = useContext(AuthContext)
+  console.log(user);
+  
   const handleSubmit = event =>{
     event.preventDefault()
     const form = event.target
     const name = form.name.value
+    const photo = form.photo.value
     const email = form.email.value
     const rating = form.rating.value
     const message = form.message.value
-    const ratings = {name, email, rating, message}
-
+    const ratings = {name, email, rating, message, photo}
+    console.log(photo)
     fetch('http://localhost:5000/ratings', {
       method: 'POST',
       headers: {
@@ -52,6 +57,7 @@ const Rating = () => {
             <form onSubmit={handleSubmit} className='grid justify-center'>
                 <div className='grid grid-cols-1 gap-4'>
                     <input name='name'  type="text" placeholder="Your Name" className="input input-bordered input-success " required />
+                    <input name='photo'  type="text" placeholder="Your Photo" defaultValue={user?.photoURL} className="input input-bordered input-success " required disabled />
                     <input defaultValue={user?.email} name='email' type="email" placeholder="email" className=" input input-bordered input-success  " disabled/>
                     <input name='rating' type="text" placeholder="rating" className=" input input-bordered input-success  " />
                 

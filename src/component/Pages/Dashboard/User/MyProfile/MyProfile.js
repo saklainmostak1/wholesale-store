@@ -27,18 +27,19 @@ const MyProfile = () => {
         <div className='mt-48 grid grid-cols-1 lg:grid-cols-1 md:grid-cols-1'>
             {
                 myProfile.map(profile =>
+                    
 
                     <div className="card  m-10 bg-gray-400 shadow-xl">
                         <figure className="px-10 pt-10">
                             <div className="avatar">
                                 <div className="w-52 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                    <img src={user?.photoURL} alt=''/>
+                                    <img src={profile?.photo} alt=''/>
                                 </div>
                             </div>
                         </figure>
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title">Name : {user?.displayName}</h2>
-                            <p className='mt-5 text-xl'>Email : {profile.email}</p>
+                            <h2 className="card-title">Name : {profile?.name}</h2>
+                            <p className='mt-5 text-xl'>Email : {profile?.email}</p>
                             <div className="card-actions">
                                 <button className=" mt-5 btn btn-primary btn-xs">Edit Profile</button>
                             </div>

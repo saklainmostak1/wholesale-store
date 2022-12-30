@@ -26,25 +26,28 @@ const DashboardNav = () => {
                                 <li><Link to='/dashboard'>DashBoard</Link></li>
                                 <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
                                 <li><Link to='/dashboard/allusers'>All Users</Link></li>
+                                <li><Link to='/dashboard/allusersorders'>All Users Orders</Link></li>
                                 <li><Link to='/dashboard/allproducts'>All Products</Link></li>
                                 <li><Link to='/dashboard/addproducts'>Add A Products</Link></li>
-                                <li><Link to='/dashboard/managereviews'>Manage Reviews</Link></li>
+                                <li><Link to='/dashboard/managereviews'>Manage Website Reviews</Link></li>
+                                <li><Link to='/dashboard/productsreviews'>Manage Products Reviews</Link></li>
                                 <li><Link to='/dashboard/reportproducts'>Reported Products</Link></li>
                                 <li><Link to='/dashboard/contactmessage'>Contact Message</Link></li>
                             </>
                         }
 
 
-                      {
-                        isBuyers && 
-                        <>
-                              <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
-                        <li><Link to='/dashboard/myorders'>My Orders</Link></li>
-                        <li><Link to='/dashboard/myreviews'>My Reviews</Link></li>
-                        <li><Link to='/dashboard/managedoctors'>Payments</Link></li>
-                        
-                        </>
-                      }
+                        {
+                            isBuyers &&
+                            <>
+                                <li><Link to='/dashboard'>DashBoard</Link></li>
+                                <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
+                                <li><Link to='/dashboard/myorders'>My Orders</Link></li>
+                                <li><Link to='/dashboard/myreviews'>My Reviews</Link></li>
+                                <li><Link to='/dashboard/managedoctors'>Payments</Link></li>
+
+                            </>
+                        }
                     </ul>
                 </div>
             </div>

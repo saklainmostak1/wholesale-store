@@ -4,7 +4,9 @@ import AllProducts from "../../Pages/AllProducts/AllProducts";
 import Contact from "../../Pages/Contact/Contact";
 import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts";
 import AllProductsDashboard from "../../Pages/Dashboard/AllProductsDashBoard/AllProductsDashboard";
+import AllProductsReviews from "../../Pages/Dashboard/AllProductsReviews/AllProductsReviews";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import AllUsersOrders from "../../Pages/Dashboard/AllUsersOrders/AllUsersOrders";
 import ContactMessage from "../../Pages/Dashboard/ContactMessage/ContactMessage";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import DashboardNav from "../../Pages/Dashboard/DashBoardNav/DashboardNav";
@@ -83,12 +85,20 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><ManageReviews></ManageReviews></AdminRoute>
             },
             {
+                path: '/dashboard/productsreviews',
+                element: <AdminRoute><AllProductsReviews></AllProductsReviews></AdminRoute>
+            },
+            {
                 path: '/dashboard/contactmessage',
                 element: <AdminRoute><ContactMessage></ContactMessage></AdminRoute>
             },
             {
                 path: '/dashboard/allusers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: '/dashboard/allusersorders',
+                element: <AdminRoute><AllUsersOrders></AllUsersOrders></AdminRoute>
             },
             {
                 path: '/dashboard/myprofile',

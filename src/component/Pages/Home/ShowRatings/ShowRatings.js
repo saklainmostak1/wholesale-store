@@ -33,6 +33,7 @@ const ShowRatings = () => {
                         key={ratin._id}
                         ratin={ratin}
                         refetch={refetch}
+                        
                     ></RatingsCard>)
                 }
                 

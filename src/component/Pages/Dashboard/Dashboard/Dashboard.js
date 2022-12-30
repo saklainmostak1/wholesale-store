@@ -1,23 +1,40 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import Loading from '../../Shared/Loading/Loading';
 
 const Dashboard = () => {
-    const {data: useres = [],  isLoading,
+    const { user } = useContext(AuthContext)
+    console.log(user);
+
+    const { data: users = [], isLoading
     } = useQuery({
-        queryKey: ['useres'],
-        queryFn: async() => {
-           const res = await   fetch('http://localhost:5000/users')
-        const data = await res.json()
-        return data
-    }
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/users?email=${user?.email}`)
+            const data = await res.json()
+            return data
+
+        }
     })
-    if(isLoading){
+    if (isLoading) {
         return <Loading></Loading>
     }
     return (
       <div>
-                 <h2 className='text-center text-green-600 mt-96 font-bold text-6xl'>Welcome  to dashboard</h2>
+               
+                 <div className='mt-96 grid grid-cols-1 lg:grid-cols-1 md:grid-cols-1'>
+            {
+                users.map(profile =>
+
+                    <div >
+                         <h2 className='text-center text-green-600 font-bold text-6xl'>Welcome {profile.role}  to dashboard</h2>
+                    </div>
+
+                )
+            }
+
+        </div> 
                
            
         </div>
