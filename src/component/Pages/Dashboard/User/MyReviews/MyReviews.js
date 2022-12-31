@@ -44,6 +44,7 @@ const MyReviews = () => {
 
     return (
         <div>
+            <h1 className='text-3xl mt-10 mb-10 text-center'>My Review On Products</h1>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
 
@@ -55,7 +56,7 @@ const MyReviews = () => {
                                 </label>
                             </th>
                             <th></th>
-                            <th>Name</th>
+                            <th>Products Name</th>
                             <th>Email</th>
                             <th>Rating</th>
                             <th>Text</th>

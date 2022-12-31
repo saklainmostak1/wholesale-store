@@ -43,7 +43,7 @@ const DashboardNav = () => {
                                 <li><Link to='/dashboard'>DashBoard</Link></li>
                                 <li><Link to='/dashboard/myprofile'>My Profile</Link></li>
                                 <li><Link to='/dashboard/myorders'>My Orders</Link></li>
-                                <li><Link to='/dashboard/myreviews'>My Reviews</Link></li>
+                                <li><Link to='/dashboard/myreviews'>My Reviews On Products</Link></li>
                                 <li><Link to='/dashboard/managedoctors'>Payments</Link></li>
 
                             </>

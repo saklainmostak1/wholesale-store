@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const ProductShow = ({ product, handleDelete }) => {
     const {name, image, price , rating, _id} = product
@@ -26,7 +27,9 @@ const ProductShow = ({ product, handleDelete }) => {
                 <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
             </td>
             <td>
-            <button className='btn btn-primary btn-xs'>Update</button>
+           <Link to={`/dashboard/updateProducts/${_id}`} >
+           <button className='btn btn-primary btn-xs'>Update</button>
+           </Link>
             </td>
 
         </tr>
