@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const OrderShow = ({order, i, handleDelete}) => {
     console.log(order);
@@ -27,7 +28,9 @@ const OrderShow = ({order, i, handleDelete}) => {
         <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
         </td>
         <td>
-        <button className='btn btn-accent btn-xs'>PAY</button>
+          <Link to={`/dashboard/payments/${_id}`}>
+          <button className='btn btn-accent btn-xs'>PAY</button>
+          </Link>
         </td>
     </tr>
     );

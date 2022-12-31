@@ -18,6 +18,7 @@ import MyOrders from "../../Pages/Dashboard/User/MyOrders/MyOrders";
 import MyProfile from "../../Pages/Dashboard/User/MyProfile/MyProfile";
 import MyReviews from "../../Pages/Dashboard/User/MyReviews/MyReviews";
 import UpdateReviews from "../../Pages/Dashboard/User/MyReviews/UpdateReviews";
+import Payments from "../../Pages/Dashboard/User/Payments/Payments";
 import Home from "../../Pages/Home/Home/Home";
 import ProductsDetails from "../../Pages/Home/ProductsDetails/ProductsDetails";
 import Login from "../../Pages/Login/Login";
@@ -122,13 +123,18 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/updateProducts/:id',
-                element: <PrivateRoutes><UpdateProducts></UpdateProducts></PrivateRoutes>,
+                element: <AdminRoute><UpdateProducts></UpdateProducts></AdminRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/allProducts/${params.id}`)
             },
             {
                 path: '/dashboard/productsRatings/:id',
-                element: <PrivateRoutes><UpdateReviews></UpdateReviews></PrivateRoutes>,
+                element: <BuyerRoute><UpdateReviews></UpdateReviews></BuyerRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/productsRatings/${params.id}`)
+            },
+            {
+                path: '/dashboard/payments/:id',
+                element: <BuyerRoute><Payments></Payments></BuyerRoute>,
+                // loader: ({params}) => fetch(`http://localhost:5000/productsRatings/${params.id}`)
             },
 
         ]
