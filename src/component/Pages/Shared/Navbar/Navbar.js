@@ -21,6 +21,7 @@ const Navbar = () => {
         user?.uid ?
         <>
         <li><Link to='/allproducts'>All Products</Link></li>
+        <li><Link to='/charts'>Charts</Link></li>
         <li><Link to='/dashboard'>DashBoard</Link></li>
         <li><Link onClick={handleLogout}>Logout</Link></li>
        <p className='mt-4 flex'> < FaUser></FaUser> <p className='-mt-1 ml-2'> {user?.displayName}</p></p>

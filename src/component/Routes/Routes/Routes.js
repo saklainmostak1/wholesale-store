@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Charts from "../../Chart/Charts";
 import Main from "../../Layout/Main";
 import AllProducts from "../../Pages/AllProducts/AllProducts";
 import Contact from "../../Pages/Contact/Contact";
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
             {
                 path: '/allproducts',
                 element: <PrivateRoutes><AllProducts></AllProducts></PrivateRoutes>
+            },
+            {
+                path: '/charts',
+                element: <PrivateRoutes><Charts></Charts></PrivateRoutes>
             },
             {
                 path: '/report/:id',
