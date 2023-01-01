@@ -60,6 +60,7 @@ export const router = createBrowserRouter([
                 path: '/charts',
                 element: <PrivateRoutes><Charts></Charts></PrivateRoutes>
             },
+            
             {
                 path: '/report/:id',
                 element: <ReportProducts></ReportProducts>,

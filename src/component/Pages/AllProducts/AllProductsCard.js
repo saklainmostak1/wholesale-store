@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const AllProductsCard = ({ product, setOrderProducts }) => {
-    const { image, name, description, _id, rating, quantity, price } = product
+    const { image, name, description, _id, rating, price } = product
     // price, rating,
     return (
         <div>
@@ -37,7 +37,6 @@ const AllProductsCard = ({ product, setOrderProducts }) => {
                     </div>
                     <div className='text-center'>
                         <label
-                            disabled={quantity.length === 0}
                             onClick={() => setOrderProducts(product)}
                             htmlFor="booking-modal"
                             className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
