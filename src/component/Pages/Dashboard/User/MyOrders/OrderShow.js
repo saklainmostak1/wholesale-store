@@ -28,9 +28,17 @@ const OrderShow = ({order, i, handleDelete}) => {
         <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
         </td>
         <td>
-          <Link to={`/dashboard/payments/${_id}`}>
-          <button className='btn btn-accent btn-xs'>PAY</button>
-          </Link>
+         {
+            order.price && !order.paid &&
+            <Link to={`/dashboard/payments/${_id}`}>
+            <button className='btn btn-accent btn-xs'>PAY</button>
+            </Link>
+         }
+
+         {
+             order.price && order.paid &&
+             <span className='text-primary'>Paid</span>
+         }
         </td>
     </tr>
     );

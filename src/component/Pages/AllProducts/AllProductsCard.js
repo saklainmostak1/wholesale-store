@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 
 const AllProductsCard = ({ product, setOrderProducts }) => {
     const { image, name, description, _id, rating, price } = product
+
+   console.log('orderd',);
+
+    console.log('all',product)
+
     // price, rating,
     return (
         <div>
+            
             <div className="card  bg-slate-200 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={image} alt="Shoes" className="rounded-xl" />
@@ -36,10 +42,16 @@ const AllProductsCard = ({ product, setOrderProducts }) => {
                         </Link>
                     </div>
                     <div className='text-center'>
-                        <label
+                       
+<label
+                            
                             onClick={() => setOrderProducts(product)}
                             htmlFor="booking-modal"
                             className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
+                        
+                            
+                       
+                        
                     </div>
                 </div>
             </div>

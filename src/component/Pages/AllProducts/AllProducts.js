@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
+import {  useState } from 'react';
 import OrderModal from '../OrderModal/OrderModal';
 import Loading from '../Shared/Loading/Loading';
 // import { Link } from 'react-router-dom';
@@ -7,6 +7,7 @@ import AllProductsCard from './AllProductsCard';
 
 const AllProducts = () => {
     const [orderProducts, setOrderProducts] = useState(null)
+//    const [order, setOrder] = useState([])
     // const [allProducts , setAllProducts] = useState([])
     // console.log(allProducts);
 
@@ -15,6 +16,10 @@ const AllProducts = () => {
     //     .then(Response => Response.json())
     //     .then(data => setAllProducts(data))
     // }, [])
+    
+
+
+
     const {data: allProducts = [],  isLoading, refetch
     } = useQuery({
         queryKey: ['allProducts'],
@@ -24,6 +29,17 @@ const AllProducts = () => {
         return data
     }
     })
+
+    // const {data: products = [], 
+    // } = useQuery({
+    //     queryKey: ['products'],
+    //     queryFn: async() => {
+    //        const res = await   fetch('http://localhost:5000/orders')
+    //     const data = await res.json()
+    //     console.log('alla dara',data);
+    //     return data
+    // }
+    // })
     if(isLoading){
         return <Loading></Loading>
     }
@@ -36,8 +52,15 @@ const AllProducts = () => {
                key={product._id}
                product={product}
                setOrderProducts={setOrderProducts}
+              
                ></AllProductsCard>)
            }
+           {/* {
+               orderd.map(prod => <AllProductsCard
+                prod={prod}
+                key={prod._id}
+                ></AllProductsCard>)
+           } */}
          
         </div>
         {/* <div className='text-center'>
@@ -53,6 +76,11 @@ const AllProducts = () => {
             refetch={refetch}
             ></OrderModal>
         }
+        <div>
+            {
+               
+            }
+        </div>
         </div>
     );
 };

@@ -7,7 +7,10 @@ import OrderShow from './OrderShow';
 
 
 const MyOrders = () => {
+  
   const {user} = useContext(AuthContext)
+  
+  
     const {data: orders = [], refetch, isLoading
     } = useQuery({
         queryKey: ['orders'],
@@ -44,6 +47,8 @@ const MyOrders = () => {
           })
          }
   }
+  
+
    
     return (
         <div>
@@ -68,13 +73,14 @@ const MyOrders = () => {
 </thead>
 <tbody> 
 {
-           orders.map((order, i) => <OrderShow
-           key={order._id}
-           i={i}
-           order={order}
-           refetch={refetch}
-           handleDelete={handleDelete}
-           ></OrderShow>)
+         orders &&
+         orders?.map((order, i) => <OrderShow
+         key={order._id}
+         i={i}
+         order={order}
+         refetch={refetch}
+         handleDelete={handleDelete}
+         ></OrderShow>)
        }
 </tbody>
 </table>
