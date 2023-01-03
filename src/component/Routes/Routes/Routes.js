@@ -20,6 +20,7 @@ import MyProfile from "../../Pages/Dashboard/User/MyProfile/MyProfile";
 import MyReviews from "../../Pages/Dashboard/User/MyReviews/MyReviews";
 import UpdateReviews from "../../Pages/Dashboard/User/MyReviews/UpdateReviews";
 import Payment from "../../Pages/Dashboard/User/Payments/Payment";
+import PaymentsProducts from "../../Pages/Dashboard/User/PaymentsProducts/PaymentsProducts";
 import Home from "../../Pages/Home/Home/Home";
 import ProductsDetails from "../../Pages/Home/ProductsDetails/ProductsDetails";
 import Login from "../../Pages/Login/Login";
@@ -141,6 +142,11 @@ export const router = createBrowserRouter([
                 path: '/dashboard/payments/:id',
                 element: <BuyerRoute><Payment></Payment></BuyerRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/allOrder/${params.id}`)
+            },
+            {
+                path: '/dashboard/paidProducts',
+                element: <AdminRoute><PaymentsProducts></PaymentsProducts></AdminRoute>,
+               
             },
 
         ]

@@ -5,16 +5,16 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 const ShowReview = ({review, handleDelete}) => {
     const {user} = useContext(AuthContext)
     console.log(user)
-    const {name, rating, message, email, _id} = review
+    const {name, rating, message, email, _id, photo} = review
     console.log(review);
     return (
         <tr>         
         <td>
             <div className="flex items-center space-x-3">
                 <div className="avatar">
-                    {/* <div className="mask mask-squircle w-12 h-12">
+                    <div className="mask mask-squircle w-12 h-12">
                         <img src={photo} alt="" />
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </td>

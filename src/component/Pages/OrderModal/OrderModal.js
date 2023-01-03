@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
-const OrderModal = ({orderProducts, setOrderProducts, refetch}) => {
+const OrderModal = ({orderProducts, setOrderProducts, refetch, }) => {
+ 
     const {user} = useContext(AuthContext)
-    const {name, quantity, price, image} = orderProducts
+    const {name, quantity, price, image, _id} = orderProducts
     console.log(orderProducts)
     const handleOrder = event =>{
         event.preventDefault()
@@ -18,9 +19,9 @@ const OrderModal = ({orderProducts, setOrderProducts, refetch}) => {
         const phone = form.phone.value
         console.log( quantity, names, email, phone, price, image);
         const order = {
+            OrderId: _id,
             productName: product,
             name: names,
-            quantity,
             price,
             email,
             phone,

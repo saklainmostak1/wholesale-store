@@ -1,22 +1,23 @@
 import { useQuery } from '@tanstack/react-query';
-import {  useState } from 'react';
+import {   useState } from 'react';
 import OrderModal from '../OrderModal/OrderModal';
 import Loading from '../Shared/Loading/Loading';
 // import { Link } from 'react-router-dom';
 import AllProductsCard from './AllProductsCard';
 
-const AllProducts = () => {
+const AllProducts = ({order}) => {
+    console.log(order);
     const [orderProducts, setOrderProducts] = useState(null)
-//    const [order, setOrder] = useState([])
+//    const [orders, setOrder] = useState([])
     // const [allProducts , setAllProducts] = useState([])
     // console.log(allProducts);
 
     // useEffect(() =>{
-    //     fetch('http://localhost:5000/allProducts')
+    //     fetch('http://localhost:5000/allOrder')
     //     .then(Response => Response.json())
-    //     .then(data => setAllProducts(data))
+    //     .then(data => setOrder(data))
     // }, [])
-    
+   
 
 
 
@@ -52,15 +53,10 @@ const AllProducts = () => {
                key={product._id}
                product={product}
                setOrderProducts={setOrderProducts}
-              
+               order={order}
                ></AllProductsCard>)
            }
-           {/* {
-               orderd.map(prod => <AllProductsCard
-                prod={prod}
-                key={prod._id}
-                ></AllProductsCard>)
-           } */}
+          
          
         </div>
         {/* <div className='text-center'>
@@ -76,11 +72,7 @@ const AllProducts = () => {
             refetch={refetch}
             ></OrderModal>
         }
-        <div>
-            {
-               
-            }
-        </div>
+     
         </div>
     );
 };

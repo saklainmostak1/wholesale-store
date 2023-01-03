@@ -3,16 +3,18 @@ import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const AllProductsCard = ({ product, setOrderProducts }) => {
+
     const { image, name, description, _id, rating, price } = product
 
-   console.log('orderd',);
+    console.log();
 
-    console.log('all',product)
+
 
     // price, rating,
+
     return (
         <div>
-            
+
             <div className="card  bg-slate-200 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={image} alt="Shoes" className="rounded-xl" />
@@ -41,17 +43,20 @@ const AllProductsCard = ({ product, setOrderProducts }) => {
                             <button className=' mt-5 text-red-400 underline '>Report to Admin</button>
                         </Link>
                     </div>
-                    <div className='text-center'>
-                       
-<label
-                            
-                            onClick={() => setOrderProducts(product)}
-                            htmlFor="booking-modal"
-                            className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
-                        
-                            
-                       
-                        
+                    <div className='text-center mt-5'>
+                        {
+                            product.price && !product.orderd &&
+                            <label
+
+                                onClick={() => setOrderProducts(product)}
+                                htmlFor="booking-modal"
+                                className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
+                        }
+
+                        {
+                            product.price && product.orderd &&
+                            <span className='text-primary '> Sorry!!!! <br /> Out Of Stock</span>
+                        }
                     </div>
                 </div>
             </div>

@@ -25,7 +25,12 @@ const OrderShow = ({order, i, handleDelete}) => {
         <td> {productName}</td>
         <td> {price}</td>
         <td>
-        <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
+        {
+             order.price && order.paid ?
+             'Can not Delete After Payment'
+             :
+            <button onClick={() => handleDelete(_id)} className='btn btn-warning btn-xs'>Delete</button>
+        }
         </td>
         <td>
          {

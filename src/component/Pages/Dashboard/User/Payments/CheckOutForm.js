@@ -11,7 +11,7 @@ const CheckOutForm = ({ payments }) => {
 
     const stripe = useStripe()
     const elements = useElements()
-    const { price, name, email, _id } = payments
+    const { price, name, email, _id, productName, image } = payments
 
 
 
@@ -82,10 +82,13 @@ const CheckOutForm = ({ payments }) => {
 
 
                     const payment = {
+
                         price,
                         transactionId: paymentIntent.id,
                         email,
                         OrderId: _id,
+                        productName,
+                        image
             }
             fetch('http://localhost:5000/payments', {
                 method: 'POST',

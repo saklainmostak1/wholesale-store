@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 
 
-const ProductsCard = ({ product , setOrderProducts}) => {
+const ProductsCard = ({ product, setOrderProducts }) => {
     console.log(product);
-    const {user} = useContext(AuthContext)
-    const { name, price , image, description, rating,  quantity, _id} = product
+    const { user } = useContext(AuthContext)
+    const { name, price, image, description, rating,  _id } = product
     // price, rating ,_id
     return (
         <div>
@@ -24,33 +24,48 @@ const ProductsCard = ({ product , setOrderProducts}) => {
                     </div>
                     {/* <p >Order Quantity : {quantity.length > 0 ? quantity[0]: 'Not Available' }</p>
                         <p >Available : {quantity.length} {quantity.length > 1 ? 'Products': 'Product'}</p> */}
-                    <p>{description.slice(0,56)+ '...' }</p>
+                    <p>{description.slice(0, 56) + '...'}</p>
                     <div>
                         {
                             user?.uid ?
-                           <>
-                               <div className='flex justify-evenly'>
-                        
-                        <Link to={`/productsDetails/${_id}`}>
-                            <button className='underline text-blue-300'>Show Details</button>
-                        </Link>
-                        <Link to={`/report/${_id}`}>
-                            <button className='underline text-red-500'>Report To Admin</button>
-                        </Link>
-                        
-                        </div>
-                        <div>
-                        <label
+                                <>
+                                    <div className='flex justify-evenly'>
+
+                                        <Link to={`/productsDetails/${_id}`}>
+                                            <button className='underline text-blue-300'>Show Details</button>
+                                        </Link>
+                                        <Link to={`/report/${_id}`}>
+                                            <button className='underline text-red-500'>Report To Admin</button>
+                                        </Link>
+
+                                    </div>
+                                  
+                                        <div className='text-center mt-5'>
+                                            {
+                                                product.price && !product.orderd &&
+                                                <label
+
+                                                    onClick={() => setOrderProducts(product)}
+                                                    htmlFor="booking-modal"
+                                                    className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
+                                            }
+
+                                            {
+                                                product.price && product.orderd &&
+                                                <span className='text-primary '> Sorry!!!! <br /> Out Of Stock</span>
+                                            }
+                                        </div>
+                                        {/* <label
                         onClick={() => setOrderProducts(product)}
-                        htmlFor="order-modal"  className='underline btn btn-sm btn-accent mt-5'>Order Now</label>
-                        </div>
-                           
-                           </>
-                    :
-                   <div className='mt-5 text-red-600'>
-                    <p>To Order Products And See All Products Please</p>
-                    <p className='underline text-blue-600'> <Link to='/login'>Login</Link></p>
-                   </div>
+                        htmlFor="order-modal"  className='underline btn btn-sm btn-accent mt-5'>Order Now</label> */}
+                                 
+
+                                </>
+                                :
+                                <div className='mt-5 text-red-600'>
+                                    <p>To Order Products And See All Products Please</p>
+                                    <p className='underline text-blue-600'> <Link to='/login'>Login</Link></p>
+                                </div>
                         }
                     </div>
                 </div>
