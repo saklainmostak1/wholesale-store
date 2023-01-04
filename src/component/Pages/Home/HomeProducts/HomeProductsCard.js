@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
-const AllProductsCard = ({allproduct, setOrderProducts}) => {
+const HomeProductsCard = ({homeProduct, setOrderProducts}) => {
+    
     const { user } = useContext(AuthContext)
-    const { name, price, image, description, rating,  _id } = allproduct
+    const { name, price, image, description, rating,  _id } = homeProduct
     return (
-        
+        <div>
              <div>
             <div className="card bg-slate-200 shadow-xl">
                 <figure className="px-10 pt-10">
@@ -40,16 +41,16 @@ const AllProductsCard = ({allproduct, setOrderProducts}) => {
                                   
                                         <div className='text-center mt-5'>
                                             {
-                                                allproduct.price && !allproduct.orderd &&
+                                                homeProduct.price && !homeProduct.orderd &&
                                                 <label
-                                                onClick={() =>setOrderProducts(allproduct) }
+                                               onClick={() => setOrderProducts(homeProduct)}
                                                     
                                                     htmlFor="order-modal"
                                                     className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
                                             }
 
                                             {
-                                                allproduct.price && allproduct.orderd &&
+                                                homeProduct.price && homeProduct.orderd &&
                                                 <span className='text-primary '> Sorry!!!! <br /> Out Of Stock</span>
                                             }
                                         </div>
@@ -69,8 +70,8 @@ const AllProductsCard = ({allproduct, setOrderProducts}) => {
                 </div>
             </div>
         </div>
-        
+        </div>
     );
 };
 
-export default AllProductsCard;
+export default HomeProductsCard;
