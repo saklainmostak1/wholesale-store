@@ -5,7 +5,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import img from '../../../image/contact1.png'
 
 
-const Rating = () => {
+const Rating = ({refetch}) => {
   const {user} = useContext(AuthContext)
   console.log(user);
   
@@ -33,7 +33,7 @@ const Rating = () => {
       if (data.acknowledged) {
        
         toast.success('Review Website Sucessfully')
-        // refetch()
+        refetch()
     }
     })
     .catch(error => console.error(error))

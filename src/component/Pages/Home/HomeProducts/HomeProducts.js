@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import AllProductsModal from '../../AllProducts/AllProductsModal';
 import Loading from '../../Shared/Loading/Loading';
@@ -48,7 +49,7 @@ const HomeProducts = () => {
           ></AllProductsModal>
          }
       </div>
-      {/* {
+      {
     user?.uid ? 
     <>
      <div className='text-center'>
@@ -59,7 +60,7 @@ const HomeProducts = () => {
     </>
     :
     ''
- } */}
+ }
   </div>
     );
 };

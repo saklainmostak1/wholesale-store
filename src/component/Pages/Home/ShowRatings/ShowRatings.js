@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import Loading from '../../Shared/Loading/Loading';
+import Rating from '../Rating/Rating';
 import RatingsCard from './RatingsCard';
 
 const ShowRatings = () => {
@@ -38,6 +39,9 @@ const ShowRatings = () => {
                 }
                 
             </div>
+            <Rating
+            refetch={refetch}
+            ></Rating>
         </div>
     );
 };

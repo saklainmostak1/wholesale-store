@@ -4,7 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const AllProductsModal = ({orderProducts, setOrderProducts, refetch}) => {
-    const {name,  price, image} = orderProducts
+    const {name,  price, image, _id} = orderProducts
     const {user} = useContext(AuthContext)
     const handleOrder = event =>{
         event.preventDefault()
@@ -17,6 +17,7 @@ const AllProductsModal = ({orderProducts, setOrderProducts, refetch}) => {
         const image = form.image.value
         const phone = form.phone.value
         const order = {
+            // OrderId: _id,
             productName: product,
             name: names,
             price,
