@@ -19,7 +19,7 @@ const Payment = () => {
     return (
         <div className='ml-10'>
         <h2 className='text-3xl  mb-5'>Payment</h2>
-        <h2 className='text-xl '>Payment <strong> $ {price} </strong> For {productName}  </h2>
+        <h2 className='text-xl '>Payment <strong>  {price} TK </strong> For {productName}  </h2>
         <div className='w-96 my-12'>
             <Elements stripe={stripePromise}>
                 <CheckOutForm 

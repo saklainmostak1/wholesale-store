@@ -1,65 +1,74 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
-const AllProductsCard = ({ product, setOrderProducts }) => {
-
-    const { image, name, description, _id, rating, price } = product
-
-    console.log();
-
-
-
-    // price, rating,
-
+const AllProductsCard = ({allproduct, setOrderProducts}) => {
+    const { user } = useContext(AuthContext)
+    const { name, price, image, description, rating,  _id } = allproduct
     return (
         <div>
-
-            <div className="card  bg-slate-200 shadow-xl">
+             <div>
+            <div className="card bg-slate-200 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={image} alt="Shoes" className="rounded-xl" />
                 </figure>
-                <div className="card-body">
+                <div className="card-body text-center">
                     <h2 className="text-center text-green-500 text-xl font-bold">{name}</h2>
-                    <div className='text-center mb-3'>
-                        <p className='mb-3'>Price : {price} TK</p>
-                        <div className="card-actions">
-                            <p> Rating: {rating} </p>
-                            <p className='text-orange-300 mt-1'><FaStar></FaStar></p>
-                        </div>
-                        {/* <p className='mt-3'>Order Quantity : {quantity.length > 0 ? quantity[0] : 'Not Available'}</p>
-                        <p className='mt-3'>Available : {quantity.length} {quantity.length > 1 ? 'Products' : 'Product'}</p> */}
+                    <p>Price: {price}</p>
+                    <div className="card-actions">
+                        <p> Rating: {rating} </p>
+                        <p className='text-orange-300 mt-1'><FaStar></FaStar></p>
                     </div>
-                    <p className='text-center'>{description.slice(0, 56) + '...'}</p>
-
-                    <div className='text-center flex justify-evenly'>
-                        <Link to={`/productsDetails/${_id}`}>
-                            <button className=' mt-5 text-blue-400 underline '>Show Details</button>
-                        </Link>
-                        {/* <Link to={`/allproducts/${_id}`}>
-                            <button className=' mt-5 text-blue-400 underline '>Show Details</button>
-                        </Link> */}
-                        <Link to={`/report/${_id}`}>
-                            <button className=' mt-5 text-red-400 underline '>Report to Admin</button>
-                        </Link>
-                    </div>
-                    <div className='text-center mt-5'>
+                    {/* <p >Order Quantity : {quantity.length > 0 ? quantity[0]: 'Not Available' }</p>
+                        <p >Available : {quantity.length} {quantity.length > 1 ? 'Products': 'Product'}</p> */}
+                    <p>{description.slice(0, 56) + '...'}</p>
+                    <div>
                         {
-                            product.price && !product.orderd &&
-                            <label
+                            user?.uid ?
+                                <>
+                                    <div className='flex justify-evenly'>
 
-                                onClick={() => setOrderProducts(product)}
-                                htmlFor="booking-modal"
-                                className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
-                        }
+                                        <Link to={`/productsDetails/${_id}`}>
+                                            <button className='underline text-blue-300'>Show Details</button>
+                                        </Link>
+                                        <Link to={`/report/${_id}`}>
+                                            <button className='underline text-red-500'>Report To Admin</button>
+                                        </Link>
 
-                        {
-                            product.price && product.orderd &&
-                            <span className='text-primary '> Sorry!!!! <br /> Out Of Stock</span>
+                                    </div>
+                                  
+                                        <div className='text-center mt-5'>
+                                            {
+                                                allproduct.price && !allproduct.orderd &&
+                                                <label
+                                                onClick={() =>setOrderProducts(allproduct) }
+                                                    
+                                                    htmlFor="order-modal"
+                                                    className=' underline btn btn-sm btn-accent mt-5'>Order Now</label>
+                                            }
+
+                                            {
+                                                allproduct.price && allproduct.orderd &&
+                                                <span className='text-primary '> Sorry!!!! <br /> Out Of Stock</span>
+                                            }
+                                        </div>
+                                        {/* <label
+                        onClick={() => setOrderProducts(product)}
+                        htmlFor="order-modal"  className='underline btn btn-sm btn-accent mt-5'>Order Now</label> */}
+                                 
+
+                                </>
+                                :
+                                <div className='mt-5 text-red-600'>
+                                    <p>To Order Products And See All Products Please</p>
+                                    <p className='underline text-blue-600'> <Link to='/login'>Login</Link></p>
+                                </div>
                         }
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

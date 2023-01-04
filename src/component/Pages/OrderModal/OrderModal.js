@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
-const OrderModal = ({orderProducts, setOrderProducts, refetch, }) => {
+const OrderModal = ({orderProducts, setOrderProducts, refetch }) => {
  
     const {user} = useContext(AuthContext)
     const {name, quantity, price, image, _id} = orderProducts
