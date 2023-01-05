@@ -17,7 +17,7 @@ const AllProductsModal = ({orderProducts, setOrderProducts, refetch}) => {
         const image = form.image.value
         const phone = form.phone.value
         const order = {
-            // OrderId: _id,
+            OrderId: _id,
             productName: product,
             name: names,
             price,
