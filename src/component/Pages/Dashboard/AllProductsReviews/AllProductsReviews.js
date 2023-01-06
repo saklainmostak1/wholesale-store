@@ -9,7 +9,7 @@ const AllProductsReviews = () => {
     } = useQuery({
         queryKey: ['productsRatings'],
         queryFn: async() => {
-           const res = await   fetch('http://localhost:5000/productsRatings')
+           const res = await   fetch('https://fashion-fiesta-store.vercel.app/productsRatings')
         const data = await res.json()
         return data
     }
@@ -21,7 +21,7 @@ const AllProductsReviews = () => {
         const proceed = window.confirm('Are You Sure delete')
             
            if(proceed){
-            fetch(`http://localhost:5000/productsRatings/${id}`, {
+            fetch(`https://fashion-fiesta-store.vercel.app/productsRatings/${id}`, {
                 method: "DELETE",
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

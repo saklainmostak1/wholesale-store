@@ -8,7 +8,7 @@ const ContactMessage = () => {
     } = useQuery({
         queryKey: ['contacts'],
         queryFn: async() => {
-           const res = await   fetch('http://localhost:5000/contact')
+           const res = await   fetch('https://fashion-fiesta-store.vercel.app/contact')
         const data = await res.json()
         return data
     }

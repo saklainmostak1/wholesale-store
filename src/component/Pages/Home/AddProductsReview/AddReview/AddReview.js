@@ -26,7 +26,7 @@ const AddReview = ({productsDetailss}) => {
             productName,
             text
         }
-        fetch('http://localhost:5000/productsReviews', {
+        fetch('https://fashion-fiesta-store.vercel.app/productsReviews', {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json',

@@ -26,7 +26,7 @@ const AllProductsModal = ({orderProducts, setOrderProducts, refetch}) => {
             image  
 
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://fashion-fiesta-store.vercel.app/orders', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

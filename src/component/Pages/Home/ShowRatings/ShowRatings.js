@@ -6,7 +6,7 @@ import RatingsCard from './RatingsCard';
 const ShowRatings = () => {
     // const [ratings, setRatings] = useState([])
     // useEffect(() => {
-    //     fetch('http://localhost:5000/ratings')
+    //     fetch('https://fashion-fiesta-store.vercel.app/ratings')
     //         .then(Response => Response.json())
     //         .then(data => setRatings(data))
     // }, [])
@@ -14,7 +14,7 @@ const ShowRatings = () => {
     } = useQuery({
         queryKey: ['ratings'],
         queryFn: async() => {
-           const res = await   fetch('http://localhost:5000/ratings')
+           const res = await   fetch('https://fashion-fiesta-store.vercel.app/ratings')
         const data = await res.json()
         return data
     }

@@ -65,12 +65,12 @@ export const router = createBrowserRouter([
             {
                 path: '/report/:id',
                 element: <ReportProducts></ReportProducts>,
-                loader: ({params}) => fetch(`http://localhost:5000/allProducts/${params.id}`)
+                loader: ({params}) => fetch(`https://fashion-fiesta-store.vercel.app/allProducts/${params.id}`)
             },
             {
                 path: '/productsDetails/:id',
                 element:<ProductsDetails></ProductsDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/allProducts/${params.id}`)
+                loader: ({params}) => fetch(`https://fashion-fiesta-store.vercel.app/allProducts/${params.id}`)
             },
         ]
     },
@@ -126,22 +126,22 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/update/:id',
                 element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/users/${params.id}`)
+                loader: ({params}) => fetch(`https://fashion-fiesta-store.vercel.app/users/${params.id}`)
             },
             {
                 path: '/dashboard/updateProducts/:id',
                 element: <AdminRoute><UpdateProducts></UpdateProducts></AdminRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/allProducts/${params.id}`)
+                loader: ({params}) => fetch(`https://fashion-fiesta-store.vercel.app/allProducts/${params.id}`)
             },
             {
                 path: '/dashboard/productsRatings/:id',
                 element: <BuyerRoute><UpdateReviews></UpdateReviews></BuyerRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/productsRatings/${params.id}`)
+                loader: ({params}) => fetch(`https://fashion-fiesta-store.vercel.app/productsRatings/${params.id}`)
             },
             {
                 path: '/dashboard/payments/:id',
                 element: <BuyerRoute><Payment></Payment></BuyerRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/allOrder/${params.id}`)
+                loader: ({params}) => fetch(`https://fashion-fiesta-store.vercel.app/allOrder/${params.id}`)
             },
             {
                 path: '/dashboard/paidProducts',

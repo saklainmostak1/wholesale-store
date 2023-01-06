@@ -10,7 +10,7 @@ const PaymentsProducts = () => {
     } = useQuery({
         queryKey: ['payments'],
         queryFn: async() => {
-           const res = await   fetch('http://localhost:5000/payment', {
+           const res = await   fetch('https://fashion-fiesta-store.vercel.app/payment', {
               headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
               }

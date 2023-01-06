@@ -10,7 +10,7 @@ const UpdateReviews = () => {
     const handleEditeReview = event => {
         event.preventDefault()
         // console.log(editReviews);
-        fetch(`http://localhost:5000/productsRatings/${updateReview._id}`, {
+        fetch(`https://fashion-fiesta-store.vercel.app/productsRatings/${updateReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -19,7 +19,7 @@ const Rating = ({refetch}) => {
     const message = form.message.value
     const ratings = {name, email, rating, message, photo}
     console.log(photo)
-    fetch('http://localhost:5000/ratings', {
+    fetch('https://fashion-fiesta-store.vercel.app/ratings', {
       method: 'POST',
       headers: {
         'content-type' : 'application/json'

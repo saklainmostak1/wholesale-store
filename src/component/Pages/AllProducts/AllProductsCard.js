@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const AllProductsCard = ({allproduct, setOrderProducts}) => {
     const { user } = useContext(AuthContext)
@@ -11,7 +13,12 @@ const AllProductsCard = ({allproduct, setOrderProducts}) => {
              <div>
             <div className="card bg-slate-200 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src={image} alt="Shoes" className="rounded-xl" />
+                <PhotoProvider>
+                <PhotoView src={image}>
+                    <img src={image} alt="" className="rounded-xl" />
+                </PhotoView>
+            </PhotoProvider>
+                    {/* <img src={image} alt="" className="rounded-xl" /> */}
                 </figure>
                 <div className="card-body text-center">
                     <h2 className="text-center text-green-500 text-xl font-bold">{name}</h2>

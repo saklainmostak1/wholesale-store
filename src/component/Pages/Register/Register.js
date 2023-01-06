@@ -31,7 +31,7 @@ const Register = () => {
     const users = {name, email, photo, role:user}
     console.log(name, email, photo, password);
 
-    fetch('http://localhost:5000/users', {
+    fetch('https://fashion-fiesta-store.vercel.app/users', {
       method: 'POST',
       headers: {
         'content-type' : 'application/json'
@@ -89,7 +89,7 @@ const Register = () => {
   
 
   //  const getUserToken = email =>{
-  //       fetch(`http://localhost:5000/jwt?email=${email}`)
+  //       fetch(`https://fashion-fiesta-store.vercel.app/jwt?email=${email}`)
   //       .then(Response => Response.json())
   //       .then(data => {
   //         if(data.accessToken){

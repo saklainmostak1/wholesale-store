@@ -15,7 +15,7 @@ const AddProducts = () => {
         const addProducts = {
             name, image, price, rating, description
         }
-        fetch('http://localhost:5000/addProducts', {
+        fetch('https://fashion-fiesta-store.vercel.app/addProducts', {
       method: 'POST',
       headers: {
         'content-type' : 'application/json'

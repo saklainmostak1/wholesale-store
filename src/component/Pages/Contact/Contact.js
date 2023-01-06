@@ -12,7 +12,7 @@ const Contact = () => {
        
         const ratings = {name, email, description}
     
-        fetch('http://localhost:5000/contact', {
+        fetch('https://fashion-fiesta-store.vercel.app/contact', {
           method: 'POST',
           headers: {
             'content-type' : 'application/json'

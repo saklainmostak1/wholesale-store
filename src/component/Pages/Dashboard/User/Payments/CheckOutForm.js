@@ -16,7 +16,7 @@ const CheckOutForm = ({ payments }) => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://fashion-fiesta-store.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "content-Type": "application/json",
@@ -90,7 +90,7 @@ const CheckOutForm = ({ payments }) => {
                         productName,
                         image
             }
-            fetch('http://localhost:5000/payments', {
+            fetch('https://fashion-fiesta-store.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

@@ -10,7 +10,7 @@ const GetReview = ({ productsDetailss }) => {
     } = useQuery({
         queryKey: ['productsReviewss'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/productReviews?products=${_id}`)
+            const res = await fetch(`https://fashion-fiesta-store.vercel.app/productReviews?products=${_id}`)
             const data = await res.json()
             return data
         }

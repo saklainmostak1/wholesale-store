@@ -9,7 +9,7 @@ const ReportedProducts = () => {
     } = useQuery({
         queryKey: ['reportProducts'],
         queryFn: async() => {
-           const res = await   fetch('http://localhost:5000/report')
+           const res = await   fetch('https://fashion-fiesta-store.vercel.app/report')
         const data = await res.json()
         return data
     }
@@ -21,7 +21,7 @@ const ReportedProducts = () => {
       const proceed = window.confirm('Are You Sure delete')
           
          if(proceed){
-          fetch(`http://localhost:5000/report/${id}`, {
+          fetch(`https://fashion-fiesta-store.vercel.app/report/${id}`, {
               method: "DELETE",
               headers: {
                   authorization: `bearer ${localStorage.getItem('accessToken')}`

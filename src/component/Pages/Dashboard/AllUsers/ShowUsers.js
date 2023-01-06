@@ -5,7 +5,7 @@ const ShowUsers = ({users, refetch,i, handleDelete}) => {
     console.log(users)
     const {name, email, photo, _id, role} = users
     const handleMakeAdmin = id =>{
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://fashion-fiesta-store.vercel.app/users/admin/${id}`, {
             method: 'PUT'
         })
         .then(Response => Response.json())

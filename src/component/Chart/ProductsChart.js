@@ -11,7 +11,7 @@ const ProductsChart = () => {
     const productPrice=[];
 
     const getSocialrecord= async()=>{
-      const dataReq= await fetch("http://localhost:5000/allProducts");
+      const dataReq= await fetch("https://fashion-fiesta-store.vercel.app/allProducts");
       const dataRes= await dataReq.json();
       console.log(dataRes);
 

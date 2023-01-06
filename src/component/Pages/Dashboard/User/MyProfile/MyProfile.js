@@ -12,7 +12,7 @@ const MyProfile = () => {
     } = useQuery({
         queryKey: ['myProfile'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users?email=${user?.email}`)
+            const res = await fetch(`https://fashion-fiesta-store.vercel.app/users?email=${user?.email}`)
             const data = await res.json()
             return data
 
@@ -22,7 +22,7 @@ const MyProfile = () => {
         return <Loading></Loading>
     }
 
-    // http://localhost:5000/users?email=abcd@gmail.com
+    // https://fashion-fiesta-store.vercel.app/users?email=abcd@gmail.com
 
     return (
         <div className='mt-48 grid grid-cols-1 lg:grid-cols-1 md:grid-cols-1'>

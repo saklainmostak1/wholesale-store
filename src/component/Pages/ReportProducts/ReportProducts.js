@@ -17,7 +17,7 @@ const ReportProducts = () => {
        
         const reports = {name, image, email, description, products}
     
-        fetch('http://localhost:5000/report', {
+        fetch('https://fashion-fiesta-store.vercel.app/report', {
           method: 'POST',
           headers: {
             'content-type' : 'application/json'

@@ -9,7 +9,7 @@ const UpdateProfile = () => {
     const handleEditeReview = event => {
         event.preventDefault()
         // console.log(editProfile);
-        fetch(`http://localhost:5000/users/${updateProfile._id}`, {
+        fetch(`https://fashion-fiesta-store.vercel.app/users/${updateProfile._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

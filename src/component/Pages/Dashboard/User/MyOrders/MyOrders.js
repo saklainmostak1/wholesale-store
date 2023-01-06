@@ -15,7 +15,7 @@ const MyOrders = () => {
     } = useQuery({
         queryKey: ['orders'],
         queryFn: async() => {
-           const res = await   fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+           const res = await   fetch(`https://fashion-fiesta-store.vercel.app/orders?email=${user?.email}`, {
               headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
               }
@@ -31,7 +31,7 @@ const MyOrders = () => {
       const proceed = window.confirm('Are You Sure delete')
           
          if(proceed){
-          fetch(`http://localhost:5000/orders/${id}`, {
+          fetch(`https://fashion-fiesta-store.vercel.app/orders/${id}`, {
               method: "DELETE",
               headers: {
                   authorization: `bearer ${localStorage.getItem('accessToken')}`

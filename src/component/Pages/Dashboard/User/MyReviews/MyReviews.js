@@ -12,7 +12,7 @@ const MyReviews = () => {
     } = useQuery({
         queryKey: ['myReviewss'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/allReviews?email=${user.email}`)
+            const res = await fetch(`https://fashion-fiesta-store.vercel.app/allReviews?email=${user.email}`)
             const data = await res.json()
             return data
         }
@@ -25,7 +25,7 @@ const MyReviews = () => {
         const proceed = window.confirm('Are You Sure delete')
             
            if(proceed){
-            fetch(`http://localhost:5000/allReviews/${id}`, {
+            fetch(`https://fashion-fiesta-store.vercel.app/allReviews/${id}`, {
                 method: "DELETE",
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
